@@ -216,8 +216,8 @@
       <rect x="463.5" y="76.5" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-10-26: 0 synapses</title></rect>
       <rect x="463.5" y="93.0" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-10-27: 0 synapses</title></rect>
       <rect x="463.5" y="109.5" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-10-28: 0 synapses</title></rect>
-      <rect x="463.5" y="126.0" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-10-29: 0 synapses</title></rect>
-      <rect x="463.5" y="142.5" width="14.5" height="13.5" rx="3" fill="#59400a"><title>2026-10-30: 2 synapses</title></rect>
+      <rect x="463.5" y="126.0" width="14.5" height="13.5" rx="3" fill="#59400a"><title>2026-10-29: 1 synapses</title></rect>
+      <rect x="463.5" y="142.5" width="14.5" height="13.5" rx="3" fill="#59400a"><title>2026-10-30: 1 synapses</title></rect>
       <rect x="463.5" y="159.0" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-10-31: 0 synapses</title></rect>
       <rect x="483.0" y="60.0" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-11-01: 0 synapses</title></rect>
       <rect x="483.0" y="76.5" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-11-02: 0 synapses</title></rect>
@@ -240,7 +240,7 @@
       <rect x="522.0" y="126.0" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-11-19: 0 synapses</title></rect>
       <rect x="522.0" y="142.5" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-11-20: 0 synapses</title></rect>
       <rect x="522.0" y="159.0" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-11-21: 0 synapses</title></rect>
-      <rect x="541.5" y="60.0" width="14.5" height="13.5" rx="3" fill="#9c7011"><title>2026-11-22: 3 synapses</title></rect>
+      <rect x="541.5" y="60.0" width="14.5" height="13.5" rx="3" fill="#dfa620"><title>2026-11-22: 6 synapses</title></rect>
   </g>
 
   <!-- Horizon & Legend (x = 54..556) -->
@@ -274,12 +274,12 @@
 
   <!-- 3 Compact Telemetry KPIs in Calm Muted Gold (#b89b5e) -->
   <g transform="translate(605, 84)">
-    <text x="0" y="22" class="mono" font-size="22" font-weight="700" fill="#b89b5e">34</text>
+    <text x="0" y="22" class="mono" font-size="22" font-weight="700" fill="#b89b5e">37</text>
     <text x="0" y="37" class="mono" font-size="8" font-weight="600" fill="#64748b" letter-spacing="0.5">COMMITS</text>
   </g>
 
   <g transform="translate(692, 84)">
-    <text x="0" y="22" class="mono" font-size="22" font-weight="700" fill="#b89b5e">13d</text>
+    <text x="0" y="22" class="mono" font-size="22" font-weight="700" fill="#b89b5e">14d</text>
     <text x="0" y="37" class="mono" font-size="8" font-weight="600" fill="#64748b" letter-spacing="0.5">ACTIVE CADENCE</text>
   </g>
 
@@ -290,23 +290,23 @@
 
   <!-- Core Language Distribution Segmented Bar (width = 266) -->
   <g clip-path="url(#langBarClip)">
-      <rect x="605.0" y="146" width="191.3" height="7" fill="#3178c6" />
-      <rect x="796.3" y="146" width="66.8" height="7" fill="#ffd15c" />
-      <rect x="863.0" y="146" width="7.2" height="7" fill="#f1e05a" />
+      <rect x="605.0" y="146" width="156.0" height="7" fill="#3178c6" />
+      <rect x="761.0" y="146" width="103.4" height="7" fill="#ffd15c" />
+      <rect x="864.4" y="146" width="5.8" height="7" fill="#f1e05a" />
       <rect x="870.2" y="146" width="0.8" height="7" fill="#9c7011" />
   </g>
 
   <!-- Compact 2x2 Language Breakdown -->
   <!-- Row 1 -->
   <circle cx="608" cy="170" r="3" fill="#3178c6" />
-  <text x="617" y="173" class="mono" font-size="9" fill="#94a3b8">TypeScript <tspan fill="#f1f5f9" font-weight="600">71.9%</tspan></text>
+  <text x="617" y="173" class="mono" font-size="9" fill="#94a3b8">TypeScript <tspan fill="#f1f5f9" font-weight="600">58.7%</tspan></text>
 
   <circle cx="738" cy="170" r="3" fill="#ffd15c" />
-  <text x="747" y="173" class="mono" font-size="9" fill="#94a3b8">Python <tspan fill="#f1f5f9" font-weight="600">25.1%</tspan></text>
+  <text x="747" y="173" class="mono" font-size="9" fill="#94a3b8">Python <tspan fill="#f1f5f9" font-weight="600">38.9%</tspan></text>
 
   <!-- Row 2 -->
   <circle cx="608" cy="191" r="3" fill="#f1e05a" />
-  <text x="617" y="194" class="mono" font-size="9" fill="#94a3b8">JavaScript <tspan fill="#f1f5f9" font-weight="600">2.7%</tspan></text>
+  <text x="617" y="194" class="mono" font-size="9" fill="#94a3b8">JavaScript <tspan fill="#f1f5f9" font-weight="600">2.2%</tspan></text>
 
   <circle cx="738" cy="191" r="3" fill="#9c7011" />
   <text x="747" y="194" class="mono" font-size="9" fill="#94a3b8">CSS <tspan fill="#f1f5f9" font-weight="600">0.3%</tspan></text>

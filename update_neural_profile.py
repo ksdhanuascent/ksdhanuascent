@@ -477,22 +477,13 @@ def generate_neural_heatmap_svg(data: dict) -> str:
     return svg
 
 
-def generate_agentic_brain_deck_svg() -> str:
-    """Generates Card 2: agentic-brain-deck.svg (900x330 — Unified Two-Panel SVG)."""
-
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" width="900" height="330">
+def generate_system_telemetry_svg() -> str:
+    """Generates Card 1: system-telemetry.svg (Full-Width Maximized Architecture Telemetry)."""
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 205" width="900" height="205">
   <defs>
-    <linearGradient id="deckBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="panelBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0f1623" />
       <stop offset="100%" stop-color="#090d16" />
-    </linearGradient>
-    <linearGradient id="goldLinearCalm" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#b89b5e" />
-      <stop offset="100%" stop-color="#9c824c" />
-    </linearGradient>
-    <linearGradient id="synapseCyanCalmGold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="100%" stop-color="#b89b5e" />
     </linearGradient>
     <style>
       @font-face {{
@@ -511,224 +502,264 @@ def generate_agentic_brain_deck_svg() -> str:
       .charmisia-bold {{ font-family: 'Charmisia', 'Georgia', cursive, serif; font-weight: 700; }}
       .mono {{ font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', Consolas, 'Liberation Mono', monospace; }}
       .sans {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }}
-      @keyframes coreRingPulse {{
-        0%, 100% {{ transform: scale(1); opacity: 0.6; }}
-        50% {{ transform: scale(1.15); opacity: 0.2; }}
+      @keyframes calmPulse {{
+        0%, 100% {{ opacity: 0.95; }}
+        50% {{ opacity: 0.4; }}
       }}
-      .pulse-ring-1 {{ transform-origin: 225px 158px; animation: coreRingPulse 3.4s ease-in-out infinite; }}
-      .pulse-ring-2 {{ transform-origin: 225px 158px; animation: coreRingPulse 3.4s ease-in-out infinite 1.7s; }}
+      .hud-online {{ animation: calmPulse 2.8s ease-in-out infinite; }}
     </style>
   </defs>
 
   <!-- Canvas Background -->
-  <rect x="0" y="0" width="900" height="330" fill="{COLOR_BG_CANVAS}" />
+  <rect x="0" y="0" width="900" height="205" fill="{COLOR_BG_CANVAS}" />
 
-  <!-- ======================================================== -->
-  <!-- LEFT PANEL: Agentic AI Brain & Multi-Agent Topology Visual -->
-  <!-- Coordinates: x=8..442, y=8..322 (width=434, height=314)     -->
-  <!-- ======================================================== -->
-  <rect x="8" y="8" width="434" height="314" rx="6" fill="url(#deckBgGrad)" stroke="{COLOR_BORDER}" stroke-width="1" />
+  <!-- Full-Width Card Surface -->
+  <rect x="5" y="5" width="890" height="195" rx="8" fill="url(#panelBgGrad)" stroke="{COLOR_BORDER}" stroke-width="1" />
 
   <!-- Subtle Antique Brass Corner Bracket Accents -->
-  <path d="M 12 22 L 12 12 L 22 12" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
-  <path d="M 430 12 L 440 12 L 440 22" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
-  <path d="M 12 308 L 12 318 L 22 318" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
-  <path d="M 430 318 L 440 318 L 440 308" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
+  <path d="M 9 21 L 9 9 L 21 9" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
+  <path d="M 879 9 L 891 9 L 891 21" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
+  <path d="M 9 183 L 9 195 L 21 195" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
+  <path d="M 879 195 L 891 195 L 891 183" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
 
-  <!-- Left HUD Top Bar -->
-  <line x1="8" y1="38" x2="442" y2="38" stroke="{COLOR_BORDER}" stroke-width="1" />
-  <text x="20" y="25" class="mono" font-size="10.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">AGENTIC_BRAIN_TOPOLOGY</text>
-  <text x="195" y="25" class="mono" font-size="10" fill="{COLOR_TEXT_DIM}">//</text>
-  <text x="210" y="25" class="mono" font-size="9.5" fill="{COLOR_TEXT_MUTED}">neural-core.svg</text>
-  <text x="424" y="25" class="mono" font-size="8.5" fill="{COLOR_TEXT_DIM}" text-anchor="end">6-NODE ACTIVE</text>
+  <!-- Top AI System HUD Bar -->
+  <line x1="5" y1="36" x2="895" y2="36" stroke="{COLOR_BORDER}" stroke-width="1" />
 
-  <!-- Stylized Geometric Brain Silhouette & Neural Circuit Arches -->
-  <path d="M 210 65 C 130 65, 55 105, 58 165 C 60 215, 115 250, 195 255"
-        stroke="{COLOR_BORDER}" stroke-width="1.2" stroke-dasharray="3,3" fill="none" opacity="0.7" />
-  <path d="M 240 65 C 320 65, 395 105, 392 165 C 390 215, 335 250, 255 255"
-        stroke="{COLOR_BORDER}" stroke-width="1.2" stroke-dasharray="3,3" fill="none" opacity="0.7" />
-  <path d="M 225 58 L 225 100 M 225 215 L 225 260"
-        stroke="{COLOR_BORDER}" stroke-width="1" stroke-dasharray="2,2" />
+  <!-- HUD Left Header -->
+  <text x="20" y="23" class="mono" font-size="10.5" font-weight="600" fill="{COLOR_TEXT_SLATE}" opacity="0.95">[SYS.NODE // KSDHANUASCENT]</text>
+  <text x="194" y="23" class="mono" font-size="10.5" fill="{COLOR_TEXT_DIM}">//</text>
+  <text x="210" y="23" class="mono" font-size="10" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">SYSTEM_TELEMETRY // ARCH_SPEC</text>
 
-  <!-- Interconnecting Synaptic Circuit Pathways -->
-  <line x1="225" y1="82" x2="115" y2="105" stroke="{COLOR_BORDER}" stroke-width="1.2" />
-  <line x1="225" y1="82" x2="335" y2="105" stroke="{COLOR_BORDER}" stroke-width="1.2" />
-  <line x1="115" y1="105" x2="95" y2="185" stroke="url(#synapseCyanCalmGold)" stroke-width="1.2" stroke-dasharray="4,2" />
-  <line x1="335" y1="105" x2="355" y2="185" stroke="url(#goldLinearCalm)" stroke-width="1.2" stroke-dasharray="4,2" />
-  <line x1="95" y1="185" x2="225" y2="158" stroke="{COLOR_CYAN_SLATE}" stroke-width="1.3" opacity="0.75" />
-  <line x1="355" y1="185" x2="225" y2="158" stroke="{COLOR_GOLD_CHAMPAGNE}" stroke-width="1.3" opacity="0.75" />
-  <line x1="225" y1="158" x2="225" y2="238" stroke="url(#goldLinearCalm)" stroke-width="1.5" />
-  <line x1="95" y1="185" x2="225" y2="238" stroke="{COLOR_BORDER}" stroke-width="1" />
-  <line x1="355" y1="185" x2="225" y2="238" stroke="{COLOR_BORDER}" stroke-width="1" />
-  <line x1="115" y1="105" x2="225" y2="158" stroke="{COLOR_BORDER}" stroke-width="1" stroke-dasharray="2,3" />
-  <line x1="335" y1="105" x2="225" y2="158" stroke="{COLOR_BORDER}" stroke-width="1" stroke-dasharray="2,3" />
+  <!-- HUD Right Status Indicator -->
+  <circle cx="680" cy="19.5" r="3.5" fill="{COLOR_GOLD_CHAMPAGNE}" class="hud-online" />
+  <text x="692" y="23" class="mono" font-size="10" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}" letter-spacing="0.5">NEURAL_ORCHESTRATOR : ONLINE</text>
 
-  <!-- Secondary Synaptic Micro-Nodes -->
-  <circle cx="165" cy="122" r="2.5" fill="{COLOR_BORDER}" />
-  <circle cx="285" cy="122" r="2.5" fill="{COLOR_BORDER}" />
-  <circle cx="150" cy="210" r="2.5" fill="{COLOR_BORDER}" />
-  <circle cx="300" cy="210" r="2.5" fill="{COLOR_BORDER}" />
-  <circle cx="185" cy="168" r="2" fill="{COLOR_GOLD_ACCENT}" />
-  <circle cx="265" cy="168" r="2" fill="{COLOR_GOLD_ACCENT}" />
+  <!-- Identity Header in Charmisia Bold -->
+  <text x="32" y="64" class="charmisia-bold" font-size="26" font-weight="700" fill="{COLOR_TEXT_PRIMARY}">Dhanudharan K.S</text>
+  <text x="868" y="62" class="mono" font-size="9" font-weight="500" fill="{COLOR_TEXT_DIM}" text-anchor="end">CONF: PRODUCTION // STATE: DETERMINISTIC</text>
 
-  <!-- CALM CHAMPAGNE CENTRAL CORE NODE (225, 158) -->
-  <circle cx="225" cy="158" r="25" fill="none" stroke="{COLOR_GOLD_CHAMPAGNE}" stroke-width="0.9" opacity="0.25" class="pulse-ring-1" />
-  <circle cx="225" cy="158" r="36" fill="none" stroke="{COLOR_GOLD_ACCENT}" stroke-width="0.8" opacity="0.2" class="pulse-ring-2" />
-  <circle cx="225" cy="158" r="15" fill="{COLOR_GOLD_CHAMPAGNE}" fill-opacity="0.1" stroke="{COLOR_GOLD_CHAMPAGNE}" stroke-width="1.2" />
-  <circle cx="225" cy="158" r="6" fill="{COLOR_GOLD_CHAMPAGNE}" />
-
-  <rect x="187" y="174" width="76" height="14" rx="3" fill="{COLOR_BG_CANVAS}" stroke="{COLOR_GOLD_ACCENT}" stroke-width="0.8" />
-  <text x="225" y="184.5" class="mono" font-size="7.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}" text-anchor="middle">SYNAPSE_CORE</text>
-
-  <!-- 6 NAMED SYNAPTIC NODES -->
-  <!-- 1. ORCHESTRATOR (Top Center) -->
-  <g transform="translate(225, 82)">
-    <circle cx="0" cy="0" r="8" fill="{COLOR_BG_PANEL}" stroke="{COLOR_GOLD_CHAMPAGNE}" stroke-width="1.3" />
-    <circle cx="0" cy="0" r="4" fill="{COLOR_GOLD_CHAMPAGNE}" />
-    <rect x="-42" y="-22" width="84" height="14" rx="3" fill="{COLOR_BG_CANVAS}" stroke="{COLOR_GOLD_ACCENT}" stroke-width="0.8" />
-    <text x="0" y="-12" class="mono" font-size="8" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}" text-anchor="middle">ORCHESTRATOR</text>
+  <!-- 4 Clean Spec Rows (Maximized Full-Length Width = 836px) -->
+  <!-- Row 1: Core Role -->
+  <g transform="translate(32, 74)">
+    <rect x="0" y="0" width="836" height="20" rx="3" fill="#131d2e" fill-opacity="0.35" />
+    <text x="10" y="14" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Core Role</text>
+    <text x="150" y="14" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
+    <text x="165" y="14" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">Agentic AI Engineer &amp; System Architect</text>
   </g>
 
-  <!-- 2. PERCEPTION (Top Left) -->
-  <g transform="translate(115, 105)">
-    <circle cx="0" cy="0" r="7" fill="{COLOR_BG_PANEL}" stroke="{COLOR_CYAN_SLATE}" stroke-width="1.3" />
-    <circle cx="0" cy="0" r="3.5" fill="{COLOR_CYAN_SLATE}" />
-    <rect x="-38" y="-20" width="76" height="14" rx="3" fill="{COLOR_BG_CANVAS}" stroke="{COLOR_BORDER}" stroke-width="0.8" />
-    <text x="0" y="-10" class="mono" font-size="8" font-weight="600" fill="{COLOR_CYAN_SLATE}" text-anchor="middle">PERCEPTION</text>
+  <!-- Row 2: Orchestration -->
+  <g transform="translate(32, 98)">
+    <rect x="0" y="0" width="836" height="20" rx="3" fill="#131d2e" fill-opacity="0.35" />
+    <text x="10" y="14" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Orchestration</text>
+    <text x="150" y="14" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
+    <text x="165" y="14" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">LangGraph • n8n • Multi-Agent Pipelines</text>
   </g>
 
-  <!-- 3. REASONING (Top Right) -->
-  <g transform="translate(335, 105)">
-    <circle cx="0" cy="0" r="7" fill="{COLOR_BG_PANEL}" stroke="{COLOR_GOLD_CHAMPAGNE}" stroke-width="1.3" />
-    <circle cx="0" cy="0" r="3.5" fill="{COLOR_GOLD_CHAMPAGNE}" />
-    <rect x="-36" y="-20" width="72" height="14" rx="3" fill="{COLOR_BG_CANVAS}" stroke="{COLOR_BORDER}" stroke-width="0.8" />
-    <text x="0" y="-10" class="mono" font-size="8" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}" text-anchor="middle">REASONING</text>
+  <!-- Row 3: Intelligence -->
+  <g transform="translate(32, 122)">
+    <rect x="0" y="0" width="836" height="20" rx="3" fill="#131d2e" fill-opacity="0.35" />
+    <text x="10" y="14" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Intelligence</text>
+    <text x="150" y="14" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
+    <text x="165" y="14" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">Python • PyTorch • CrewAI • AutoGen • MCP</text>
   </g>
 
-  <!-- 4. MEMORY (Mid Left) -->
-  <g transform="translate(95, 185)">
-    <circle cx="0" cy="0" r="7" fill="{COLOR_BG_PANEL}" stroke="{COLOR_CYAN_SLATE}" stroke-width="1.3" />
-    <circle cx="0" cy="0" r="3.5" fill="{COLOR_CYAN_SLATE}" />
-    <rect x="-30" y="10" width="60" height="14" rx="3" fill="{COLOR_BG_CANVAS}" stroke="{COLOR_BORDER}" stroke-width="0.8" />
-    <text x="0" y="20" class="mono" font-size="8" font-weight="600" fill="{COLOR_CYAN_SLATE}" text-anchor="middle">MEMORY</text>
-  </g>
-
-  <!-- 5. TOOL USE (Mid Right) -->
-  <g transform="translate(355, 185)">
-    <circle cx="0" cy="0" r="7" fill="{COLOR_BG_PANEL}" stroke="{COLOR_GOLD_CHAMPAGNE}" stroke-width="1.3" />
-    <circle cx="0" cy="0" r="3.5" fill="{COLOR_GOLD_CHAMPAGNE}" />
-    <rect x="-32" y="10" width="64" height="14" rx="3" fill="{COLOR_BG_CANVAS}" stroke="{COLOR_BORDER}" stroke-width="0.8" />
-    <text x="0" y="20" class="mono" font-size="8" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}" text-anchor="middle">TOOL USE</text>
-  </g>
-
-  <!-- 6. EXECUTION (Bottom Center) -->
-  <g transform="translate(225, 238)">
-    <circle cx="0" cy="0" r="7.5" fill="{COLOR_BG_PANEL}" stroke="{COLOR_CYAN_SLATE}" stroke-width="1.3" />
-    <circle cx="0" cy="0" r="4" fill="{COLOR_CYAN_SLATE}" />
-    <rect x="-36" y="11" width="72" height="14" rx="3" fill="{COLOR_BG_CANVAS}" stroke="{COLOR_BORDER}" stroke-width="0.8" />
-    <text x="0" y="21" class="mono" font-size="8" font-weight="600" fill="{COLOR_CYAN_SLATE}" text-anchor="middle">EXECUTION</text>
-  </g>
-
-  <!-- Left Bottom Status Bar -->
-  <line x1="8" y1="284" x2="442" y2="284" stroke="{COLOR_BORDER}" stroke-width="1" />
-  <text x="225" y="303" class="mono" font-size="9" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}" letter-spacing="1.2" text-anchor="middle">
-    [MULTI_AGENT_CORTEX • DETERMINISTIC_STATE]
-  </text>
-
-
-  <!-- ======================================================== -->
-  <!-- RIGHT PANEL: Agentic System Architecture Telemetry       -->
-  <!-- Coordinates: x=458..892, y=8..322 (width=434, height=314)    -->
-  <!-- ======================================================== -->
-  <rect x="458" y="8" width="434" height="314" rx="6" fill="url(#deckBgGrad)" stroke="{COLOR_BORDER}" stroke-width="1" />
-
-  <!-- Subtle Antique Brass Corner Bracket Accents -->
-  <path d="M 462 22 L 462 12 L 472 12" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
-  <path d="M 880 12 L 890 12 L 890 22" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
-  <path d="M 462 308 L 462 318 L 472 318" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
-  <path d="M 880 318 L 890 318 L 890 308" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
-
-  <!-- Right HUD Top Bar -->
-  <line x1="458" y1="38" x2="892" y2="38" stroke="{COLOR_BORDER}" stroke-width="1" />
-  <text x="472" y="25" class="mono" font-size="10.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">SYSTEM_TELEMETRY</text>
-  <text x="618" y="25" class="mono" font-size="10" fill="{COLOR_TEXT_DIM}">//</text>
-  <text x="632" y="25" class="mono" font-size="9.5" fill="{COLOR_TEXT_MUTED}">arch-spec</text>
-  <text x="878" y="25" class="mono" font-size="8.5" fill="{COLOR_TEXT_DIM}" text-anchor="end">CONF: AGENTIC_PROD</text>
-
-  <!-- Right Header: Identity in Large Clean Charmisia Font (No Subtitle) -->
-  <text x="474" y="68" class="charmisia-bold" font-size="24" fill="#ffffff">Dhanudharan K.S</text>
-
-  <!-- 4 Clean Spec Rows (Spacious Layout) -->
-  <g transform="translate(474, 88)">
-    <!-- Row 1: Core Role -->
-    <g transform="translate(0, 0)">
-      <rect x="0" y="0" width="404" height="22" rx="3" fill="#131d2e" fill-opacity="0.35" />
-      <text x="8" y="15" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Core Role</text>
-      <text x="110" y="15" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
-      <text x="122" y="15" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">Agentic AI Engineer &amp; System Architect</text>
-    </g>
-
-    <!-- Row 2: Orchestration -->
-    <g transform="translate(0, 27)">
-      <rect x="0" y="0" width="404" height="22" rx="3" fill="#131d2e" fill-opacity="0.35" />
-      <text x="8" y="15" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Orchestration</text>
-      <text x="110" y="15" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
-      <text x="122" y="15" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">LangGraph • n8n • Multi-Agent Pipelines</text>
-    </g>
-
-    <!-- Row 3: Intelligence (CrewAI, AutoGen, MCP) -->
-    <g transform="translate(0, 54)">
-      <rect x="0" y="0" width="404" height="22" rx="3" fill="#131d2e" fill-opacity="0.35" />
-      <text x="8" y="15" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Intelligence</text>
-      <text x="110" y="15" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
-      <text x="122" y="15" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">Python • PyTorch • CrewAI • AutoGen • MCP</text>
-    </g>
-
-    <!-- Row 4: Infrastructure -->
-    <g transform="translate(0, 81)">
-      <rect x="0" y="0" width="404" height="22" rx="3" fill="#131d2e" fill-opacity="0.35" />
-      <text x="8" y="15" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Infrastructure</text>
-      <text x="110" y="15" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
-      <text x="122" y="15" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">TypeScript • Node.js • Docker • CUDA</text>
-    </g>
+  <!-- Row 4: Infrastructure -->
+  <g transform="translate(32, 146)">
+    <rect x="0" y="0" width="836" height="20" rx="3" fill="#131d2e" fill-opacity="0.35" />
+    <text x="10" y="14" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Infrastructure</text>
+    <text x="150" y="14" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
+    <text x="165" y="14" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">TypeScript • Node.js • Docker • CUDA</text>
   </g>
 
   <!-- Subtle Circuit Divider with Antique Brass End Nodes -->
-  <line x1="474" y1="208" x2="876" y2="208" stroke="{COLOR_BORDER}" stroke-width="1" />
-  <circle cx="474" cy="208" r="2" fill="{COLOR_GOLD_ACCENT}" />
-  <circle cx="876" cy="208" r="2" fill="{COLOR_GOLD_ACCENT}" />
+  <line x1="32" y1="173" x2="868" y2="173" stroke="{COLOR_BORDER}" stroke-width="1" />
+  <circle cx="32" cy="173" r="2" fill="{COLOR_GOLD_ACCENT}" />
+  <circle cx="868" cy="173" r="2" fill="{COLOR_GOLD_ACCENT}" />
 
-  <!-- Motto / Tagline in Charmisia Font -->
-  <text x="474" y="233" class="charmisia-bold" font-size="12.5" font-weight="700" fill="#e2e8f0">
-    &quot;No great thing is created suddenly.&quot;
+  <!-- Tagline in Charmisia Font (Full-Width Clean Presentation) -->
+  <text x="32" y="190" class="charmisia-bold" font-size="11.5" font-weight="700" fill="#e2e8f0">
+    &quot;No great thing is created suddenly.&quot; <tspan class="charmisia" font-weight="400" fill="{COLOR_TEXT_MUTED}">Steady, patient effort builds lasting results over time...</tspan>
   </text>
-  <text x="474" y="253" class="charmisia" font-size="11" fill="{COLOR_TEXT_MUTED}">
-    Steady, patient effort builds lasting results over time...
-  </text>
+</svg>"""
+    return svg
 
-  <!-- Bottom 8-Swatch Golden-to-Obsidian Neural Spectrum Bar -->
-  <line x1="458" y1="284" x2="892" y2="284" stroke="{COLOR_BORDER}" stroke-width="1" />
-  <g transform="translate(474, 292)">
-    <text x="0" y="12" class="mono" font-size="8.5" font-weight="600" fill="{COLOR_TEXT_DIM}" letter-spacing="0.5">NEURAL_SPECTRUM</text>
-    <!-- 8 Swatches -->
-    <g transform="translate(140, 3)">
-      <rect x="0" y="0" width="28" height="9" rx="2" fill="#ffd15c"><title>Gain 8 // Peak</title></rect>
-      <rect x="33" y="0" width="28" height="9" rx="2" fill="#dfa620"><title>Gain 7</title></rect>
-      <rect x="66" y="0" width="28" height="9" rx="2" fill="#b88316"><title>Gain 6</title></rect>
-      <rect x="99" y="0" width="28" height="9" rx="2" fill="#9c7011"><title>Gain 5</title></rect>
-      <rect x="132" y="0" width="28" height="9" rx="2" fill="#7a560e"><title>Gain 4</title></rect>
-      <rect x="165" y="0" width="28" height="9" rx="2" fill="#59400a"><title>Gain 3</title></rect>
-      <rect x="198" y="0" width="28" height="9" rx="2" fill="#322718"><title>Gain 2</title></rect>
-      <rect x="231" y="0" width="28" height="9" rx="2" fill="#161f30"><title>Gain 1 // Idle</title></rect>
-    </g>
+
+def generate_tech_loop_svg() -> str:
+    """Generates Card 3: tech-loop.svg (Continuous 3D Magnetic Loop with Official Logos ONLY)."""
+    def logo_python(cx, cy):
+        return f'''<g transform="translate({cx-13}, {cy-13}) scale(0.9)">
+          <path d="M 14.5 1 C 8 1 8.5 4 8.5 4 L 8.5 7 L 15 7 L 15 8 L 5 8 C 5 8 1 7.5 1 14 C 1 20.5 4.5 20 4.5 20 L 7 20 L 7 17 C 7 15 8.5 13.5 10.5 13.5 L 17 13.5 C 19 13.5 20 12 20 10 L 20 4.5 C 20 4.5 20.5 1 14.5 1 Z" fill="#38BDF8" />
+          <circle cx="11.5" cy="4" r="1.2" fill="#060913" />
+          <path d="M 15.5 29 C 22 29 21.5 26 21.5 26 L 21.5 23 L 15 23 L 15 22 L 25 22 C 25 22 29 22.5 29 16 C 29 9.5 25.5 10 25.5 10 L 23 10 L 23 13 C 23 15 21.5 16.5 19.5 16.5 L 13 16.5 C 11 16.5 10 18 10 20 L 10 25.5 C 10 25.5 9.5 29 15.5 29 Z" fill="#E0F2FE" />
+          <circle cx="18.5" cy="26" r="1.2" fill="#060913" />
+        </g>'''
+
+    def logo_langgraph(cx, cy):
+        return f'''<g transform="translate({cx}, {cy})">
+          <circle cx="-10" cy="8" r="4.5" fill="#38BDF8" />
+          <circle cx="10" cy="8" r="4.5" fill="#38BDF8" />
+          <circle cx="0" cy="-9" r="5" fill="#E0F2FE" />
+          <path d="M -7,5 L -2,-5" stroke="#CBD5E1" stroke-width="2" />
+          <path d="M 2,-5 L 7,5" stroke="#38BDF8" stroke-width="2" />
+          <path d="M 6,8 L -6,8" stroke="#38BDF8" stroke-width="2" stroke-dasharray="2,2" />
+          <circle cx="0" cy="0" r="1.8" fill="#38BDF8" />
+        </g>'''
+
+    def logo_n8n(cx, cy):
+        return f'''<g transform="translate({cx}, {cy})">
+          <path d="M -12,0 L -4,-8 L 4,-8 L 12,0 L 4,8 L -4,8 Z" fill="none" stroke="#38BDF8" stroke-width="1.6" />
+          <circle cx="-12" cy="0" r="3.5" fill="#E0F2FE" />
+          <circle cx="12" cy="0" r="3.5" fill="#E0F2FE" />
+          <circle cx="0" cy="0" r="4.2" fill="#38BDF8" />
+          <line x1="-12" y1="0" x2="0" y2="0" stroke="#38BDF8" stroke-width="2" />
+          <line x1="0" y1="0" x2="12" y2="0" stroke="#E0F2FE" stroke-width="2" />
+        </g>'''
+
+    def logo_pytorch(cx, cy):
+        return f'''<g transform="translate({cx}, {cy})">
+          <path d="M -2,-13 C -2,-13 5,-7 5,-3 C 5,2 1,5 -3,5 C -8,5 -11,2 -11,-3 C -11,-9 -2,-13 -2,-13 Z" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linejoin="round" />
+          <path d="M 3,-6 L 9,0 L 3,6" fill="none" stroke="#E0F2FE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="5" cy="-11" r="1.8" fill="#38BDF8" />
+        </g>'''
+
+    def logo_crewai(cx, cy):
+        return f'''<g transform="translate({cx}, {cy})">
+          <circle cx="0" cy="-8" r="4.8" fill="#E0F2FE" />
+          <circle cx="-9" cy="7" r="4.2" fill="#38BDF8" />
+          <circle cx="9" cy="7" r="4.2" fill="#38BDF8" />
+          <path d="M 0,-4 L -7,4 M 0,-4 L 7,4 M -5,7 L 5,7" stroke="#94A3B8" stroke-width="1.6" />
+          <circle cx="0" cy="0" r="1.8" fill="#FFFFFF" />
+        </g>'''
+
+    def logo_autogen(cx, cy):
+        return f'''<g transform="translate({cx}, {cy})">
+          <ellipse cx="0" cy="0" rx="11" ry="5" fill="none" stroke="#38BDF8" stroke-width="2" transform="rotate(-30)" />
+          <ellipse cx="0" cy="0" rx="11" ry="5" fill="none" stroke="#CBD5E1" stroke-width="2" transform="rotate(30)" />
+          <circle cx="0" cy="0" r="3" fill="#E0F2FE" />
+        </g>'''
+
+    def logo_mcp(cx, cy):
+        return f'''<g transform="translate({cx}, {cy})">
+          <rect x="-11" y="-11" width="22" height="22" rx="5" fill="none" stroke="#38BDF8" stroke-width="1.6" />
+          <path d="M -7,-5 L -2,0 L -7,5" fill="none" stroke="#E0F2FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 7,-5 L 2,0 L 7,5" fill="none" stroke="#E0F2FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="0" cy="0" r="2.5" fill="#38BDF8" />
+        </g>'''
+
+    def logo_typescript(cx, cy):
+        return f'''<g transform="translate({cx}, {cy})">
+          <rect x="-12" y="-12" width="24" height="24" rx="5" fill="#1E293B" stroke="#38BDF8" stroke-width="1.4" />
+          <text x="-4" y="7" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#38BDF8" text-anchor="middle">T</text>
+          <text x="4" y="7" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#E0F2FE" text-anchor="middle">S</text>
+        </g>'''
+
+    def logo_nodejs(cx, cy):
+        return f'''<g transform="translate({cx}, {cy})">
+          <path d="M 0,-12 L 10.4,-6 L 10.4,6 L 0,12 L -10.4,6 L -10.4,-6 Z" fill="none" stroke="#38BDF8" stroke-width="2" />
+          <path d="M 0,-12 L 0,0 L 10.4,6 M 0,0 L -10.4,6" stroke="#38BDF8" stroke-width="1.4" opacity="0.6" />
+          <circle cx="0" cy="0" r="3" fill="#E0F2FE" />
+        </g>'''
+
+    def logo_docker(cx, cy):
+        return f'''<g transform="translate({cx}, {cy})">
+          <path d="M -13,3 C -13,7.5 -7,10 2,10 C 10,10 13,6.5 14,2 C 12,2 10.5,3 8.5,1 C 8,0 8,-2 6,-2 C 5,-2 4,-1 3.5,0 L -8,0 C -9.5,0 -11,1.5 -13,3 Z" fill="#38BDF8" />
+          <path d="M 13,2 C 14.5,-1 14,-2.5 13,-4 C 11.5,-3 10,-2 9,-1.5" fill="none" stroke="#38BDF8" stroke-width="1.6" />
+          <rect x="-7" y="-4" width="2.5" height="2.5" fill="#E0F2FE" />
+          <rect x="-4" y="-4" width="2.5" height="2.5" fill="#E0F2FE" />
+          <rect x="-1" y="-4" width="2.5" height="2.5" fill="#E0F2FE" />
+          <rect x="-4" y="-7.2" width="2.5" height="2.5" fill="#E0F2FE" />
+          <rect x="-1" y="-7.2" width="2.5" height="2.5" fill="#E0F2FE" />
+        </g>'''
+
+    def logo_cuda(cx, cy):
+        return f'''<g transform="translate({cx}, {cy})">
+          <path d="M -11,0 C -11,-6 0,-10 0,-10 C 0,-10 11,-6 11,0 C 11,6 0,10 0,10 C 0,10 -11,6 -11,0 Z" fill="none" stroke="#38BDF8" stroke-width="1.8" />
+          <path d="M -7,0 C -7,-3.5 0,-6 0,-6 C 0,-6 7,-3.5 7,0 C 7,3.5 0,6 0,6 C 0,6 -7,3.5 -7,0 Z" fill="none" stroke="#E0F2FE" stroke-width="1.5" />
+          <circle cx="0" cy="0" r="2.6" fill="#38BDF8" />
+        </g>'''
+
+    logo_functions = [
+        logo_python,
+        logo_langgraph,
+        logo_n8n,
+        logo_pytorch,
+        logo_crewai,
+        logo_autogen,
+        logo_mcp,
+        logo_typescript,
+        logo_nodejs,
+        logo_docker,
+        logo_cuda,
+    ]
+
+    item_spacing = 80
+    total_single_width = len(logo_functions) * item_spacing
+
+    def build_pods(offset_x=0):
+        pods = []
+        for i, func in enumerate(logo_functions):
+            x = offset_x + i * item_spacing + 40
+            y = 29
+            pod_svg = f'''<circle cx="{x}" cy="{y}" r="23" fill="#0f172a" fill-opacity="0.85" stroke="url(#podBorder)" stroke-width="1.2" />{func(x, y)}'''
+            pods.append(pod_svg)
+        return "".join(pods)
+
+    group_1 = build_pods(0)
+    group_2 = build_pods(total_single_width)
+
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 90" width="900" height="90">
+  <defs>
+    <linearGradient id="loopBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#060913" stop-opacity="0.95" />
+    </linearGradient>
+    <linearGradient id="loopBorder" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#CBD5E1" stop-opacity="0.25" />
+      <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#CBD5E1" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="podBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.5" />
+      <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#CBD5E1" stop-opacity="0.25" />
+    </linearGradient>
+    <linearGradient id="fadeMaskGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="6%" stop-color="#ffffff" />
+      <stop offset="94%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#000000" />
+    </linearGradient>
+    <mask id="edgeFade">
+      <rect x="6" y="6" width="888" height="66" rx="14" fill="url(#fadeMaskGrad)" />
+    </mask>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect x="0" y="0" width="900" height="90" fill="{COLOR_BG_CANVAS}" />
+
+  <!-- Sleek Dark Glass Capsule Track (rx="14") -->
+  <rect x="4" y="8" width="892" height="74" rx="14" fill="url(#loopBg)" stroke="url(#loopBorder)" stroke-width="1.2" />
+
+  <!-- 3D Perspective Depth Arcs Behind the Track -->
+  <g stroke="{COLOR_GOLD_CHAMPAGNE}" stroke-width="0.8" fill="none" opacity="0.15">
+    <ellipse cx="450" cy="45" rx="420" ry="24" stroke-dasharray="6,4" />
+    <ellipse cx="450" cy="45" rx="380" ry="18" stroke-dasharray="3,3" />
   </g>
 
+  <!-- Continuous 3D Circular Stream with Official Vector Logos ONLY -->
+  <g mask="url(#edgeFade)" transform="translate(0, 16)">
+    <g>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-{total_single_width} 0" dur="20s" repeatCount="indefinite" />
+      {group_1}
+      {group_2}
+    </g>
+  </g>
 </svg>"""
     return svg
 
 
 def main():
-    print("[HUD // INIT] Starting Agentic AI Brain & Neural System Telemetry Engine...")
+    print("[HUD // INIT] Starting Agentic AI Profile Engine (Executive System Telemetry Edition)...")
     base_dir = os.path.dirname(os.path.abspath(__file__))
     token = find_github_token()
 
@@ -744,21 +775,38 @@ def main():
     print(f"[HUD // TELEMETRY] Deployed Nodes: {data['repo_count']} repos")
     print(f"[HUD // TELEMETRY] Horizon: {data['start_month']} – {data['end_month']} (6 Months)")
 
-    # 1. Generate neural-heatmap.svg
+    # 1. Generate system-telemetry.svg (Top Full-Width Tier)
+    telemetry_svg = generate_system_telemetry_svg()
+    telemetry_path = os.path.join(base_dir, "system-telemetry.svg")
+    with open(telemetry_path, "w", encoding="utf-8") as f:
+        f.write(telemetry_svg)
+    print(f"[HUD // RENDER] Tier 1 written -> {telemetry_path}")
+
+    # 2. Generate neural-heatmap.svg (Middle 65:35 Heatmap & Activity Matrix)
     heatmap_svg = generate_neural_heatmap_svg(data)
     heatmap_path = os.path.join(base_dir, "neural-heatmap.svg")
     with open(heatmap_path, "w", encoding="utf-8") as f:
         f.write(heatmap_svg)
-    print(f"[HUD // RENDER] Card 1 written -> {heatmap_path}")
+    print(f"[HUD // RENDER] Tier 2 written -> {heatmap_path}")
 
-    # 2. Generate agentic-brain-deck.svg
-    deck_svg = generate_agentic_brain_deck_svg()
-    deck_path = os.path.join(base_dir, "agentic-brain-deck.svg")
-    with open(deck_path, "w", encoding="utf-8") as f:
-        f.write(deck_svg)
-    print(f"[HUD // RENDER] Card 2 written -> {deck_path}")
+    # 3. Generate tech-loop.svg (Bottom 3D Glass Tech Icon Loop)
+    tech_svg = generate_tech_loop_svg()
+    tech_path = os.path.join(base_dir, "tech-loop.svg")
+    with open(tech_path, "w", encoding="utf-8") as f:
+        f.write(tech_svg)
+    print(f"[HUD // RENDER] Tier 3 written -> {tech_path}")
 
-    print("[HUD // SUCCESS] Neural Telemetry SVG engine run complete.")
+    # Remove obsolete files if present
+    for old_file in ("agentic-brain-deck.svg", "banner.svg", "cosmic-telemetry.svg", "repo-matrix.svg", "generate_readme_ui.py"):
+        old_path = os.path.join(base_dir, old_file)
+        if os.path.exists(old_path):
+            try:
+                os.remove(old_path)
+                print(f"[HUD // CLEANUP] Removed {old_file}")
+            except Exception:
+                pass
+
+    print("[HUD // SUCCESS] All Profile SVGs generated successfully.")
 
 
 if __name__ == "__main__":

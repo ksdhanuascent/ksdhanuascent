@@ -2,8 +2,8 @@ name: Update Neural Profile Telemetry
 
 on:
   schedule:
-    # Run daily at 00:00 UTC
-    - cron: "0 0 * * *"
+    # Run every 15 minutes
+    - cron: "*/15 * * * *"
   workflow_dispatch:
   push:
     branches:
@@ -11,6 +11,9 @@ on:
     paths:
       - update_neural_profile.py
       - .github/workflows/update-neural-profile.yml
+  repository_dispatch:
+    types:
+      - commit-pushed
 
 permissions:
   contents: write

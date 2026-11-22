@@ -581,19 +581,19 @@ def generate_system_telemetry_svg() -> str:
 
 
 def generate_banner_svg() -> str:
-    """Generates Card 2: banner.svg (Contribution Matrix + Unified Brain Deck Background Banner)."""
+    """Generates Card 2: banner.svg (4K AI Neural Brain + Contribution Matrix + Centered Identity)."""
     import random
     random.seed(42)
 
-    # Build background contribution matrix squares
+    # Build background contribution matrix squares in right blank space (x: 650..875)
     grid_rects = []
     cell_size = 9
     pitch = 12.5
     levels = ["#161f30", "#59400a", "#9c7011", "#dfa620", "#ffd15c"]
 
-    for c in range(25):
+    for c in range(18):
         for r in range(9):
-            x = 540 + c * pitch
+            x = 650 + c * pitch
             y = 28 + r * pitch
             lvl = random.choices([0, 1, 2, 3, 4], weights=[64, 13, 11, 7, 5])[0]
             color = levels[lvl]
@@ -628,27 +628,16 @@ def generate_banner_svg() -> str:
       <stop offset="100%" stop-color="#040711" />
     </linearGradient>
 
-    <!-- Matrix Fade Mask -->
+    <!-- Matrix Fade Mask (Right side) -->
     <linearGradient id="matrixMaskGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#000000" />
-      <stop offset="35%" stop-color="#ffffff" stop-opacity="0.35" />
-      <stop offset="75%" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.35" />
+      <stop offset="85%" stop-color="#ffffff" stop-opacity="0.85" />
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0.5" />
     </linearGradient>
 
     <mask id="matrixFade">
-      <rect x="520" y="20" width="370" height="140" fill="url(#matrixMaskGrad)" />
-    </mask>
-
-    <!-- Brain Deck Fade Mask -->
-    <linearGradient id="brainMaskGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
-      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#000000" />
-    </linearGradient>
-
-    <mask id="brainFade">
-      <rect x="10" y="20" width="380" height="140" fill="url(#brainMaskGrad)" />
+      <rect x="640" y="20" width="250" height="140" fill="url(#matrixMaskGrad)" />
     </mask>
 
     <linearGradient id="specularBorder" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -671,8 +660,24 @@ def generate_banner_svg() -> str:
       <stop offset="100%" stop-color="#94A3B8" />
     </linearGradient>
 
-    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+    <!-- 4K AI Brain Shading Gradients -->
+    <linearGradient id="neonBrainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0F2FE" />
+      <stop offset="35%" stop-color="#38BDF8" />
+      <stop offset="70%" stop-color="#ffd15c" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+
+    <filter id="brainGlow" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="nodeFlare" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
       <feMerge>
         <feMergeNode in="blur" />
         <feMergeNode in="SourceGraphic" />
@@ -687,37 +692,80 @@ def generate_banner_svg() -> str:
   <rect x="5" y="5" width="890" height="165" rx="14" fill="url(#bannerBg)" stroke="url(#specularBorder)" stroke-width="1.2" />
 
   <!-- ====================================================================== -->
-  <!-- BACKGROUND LAYER 1: UNIFIED BRAIN DECK / NEURAL NETWORK TOPOLOGY       -->
+  <!-- 4K AI NEURAL BRAIN IN THE LEFT BLANK SPACE (x: 64..196, y: 34..146)    -->
   <!-- ====================================================================== -->
-  <g mask="url(#brainFade)" transform="translate(105, 87)" opacity="0.7">
-    <!-- Brain Silhouette & Sulci -->
-    <ellipse cx="0" cy="0" rx="72" ry="26" fill="none" stroke="#ffd15c" stroke-width="0.9" opacity="0.4" stroke-dasharray="3,3" transform="rotate(-15)" />
-    <path d="M -4,-42 C -36,-40 -64,-20 -62,14 C -60,38 -42,54 -22,62 C -6,68 -2,65 -4,58" stroke="#38BDF8" stroke-width="1.8" fill="none" opacity="0.8" />
-    <path d="M 4,-42 C 36,-40 64,-20 62,14 C 60,38 42,54 22,62 C 6,68 2,65 4,58" stroke="#38BDF8" stroke-width="1.8" fill="none" opacity="0.8" />
-    <line x1="0" y1="-44" x2="0" y2="60" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.6" />
+  <g id="ai-neural-brain-4k">
+    <!-- Ambient Neural Nebula Aura -->
+    <ellipse cx="128" cy="88" rx="72" ry="52" fill="#0284c7" fill-opacity="0.14" filter="url(#brainGlow)" />
     
-    <!-- Cortical Fissures -->
-    <path d="M -46,-5 C -34,-14 -20,2 -10,-5" stroke="#ffd15c" stroke-width="1.4" fill="none" opacity="0.7" />
-    <path d="M -42,22 C -26,14 -16,26 -5,18" stroke="#38BDF8" stroke-width="1.4" fill="none" opacity="0.7" />
-    <path d="M 46,-5 C 34,-14 20,2 10,-5" stroke="#ffd15c" stroke-width="1.4" fill="none" opacity="0.7" />
-    <path d="M 42,22 C 26,14 16,26 5,18" stroke="#38BDF8" stroke-width="1.4" fill="none" opacity="0.7" />
+    <!-- Outer Anatomical Brain Sagittal Contour -->
+    <path d="M 68 85 C 64 64, 82 42, 114 38 C 145 34, 182 46, 192 78 C 196 95, 188 112, 172 120 C 182 128, 178 142, 164 144 C 152 145, 142 138, 138 132 C 130 134, 120 132, 114 126 C 96 128, 78 122, 74 105 C 70 98, 70 90, 68 85 Z" 
+          stroke="url(#neonBrainGrad)" stroke-width="2" fill="#0c192c" fill-opacity="0.45" filter="url(#nodeFlare)" />
 
-    <!-- Circuit Trace Bus Extending from Brain Deck to Center -->
-    <path d="M 60,10 L 95,10 L 115,-10 L 180,-10" stroke="#ffd15c" stroke-width="1.2" fill="none" opacity="0.6" />
-    <path d="M 55,-20 L 85,-20 L 105,0 L 180,0" stroke="#38BDF8" stroke-width="1.2" fill="none" opacity="0.6" />
-    <path d="M 55,30 L 90,30 L 110,15 L 180,15" stroke="#38BDF8" stroke-width="1.2" fill="none" opacity="0.5" />
+    <!-- Cerebellar Fissure & Basal Lobes -->
+    <path d="M 148 122 C 160 126, 172 132, 168 140 C 164 144, 150 144, 142 136" 
+          stroke="#ffd15c" stroke-width="1.2" fill="none" opacity="0.75" />
+    <!-- Brainstem Medullary Stalk -->
+    <path d="M 136 134 L 132 152 M 142 136 L 140 152" 
+          stroke="#38BDF8" stroke-width="1.2" stroke-dasharray="2,3" opacity="0.6" />
+
+    <!-- Lateral Sulcus (Sylvian Fissure) & Central Sulcus Neural Traces -->
+    <path d="M 82 98 C 102 96, 124 104, 152 92 C 168 86, 176 96, 186 92" 
+          stroke="#38BDF8" stroke-width="1.4" fill="none" opacity="0.75" />
+    <path d="M 124 40 C 122 62, 135 80, 138 102" 
+          stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.65" />
     
-    <!-- Node Pips -->
-    <circle cx="180" cy="-10" r="2.5" fill="#ffd15c" />
-    <circle cx="180" cy="0" r="2.5" fill="#38BDF8" />
-    <circle cx="180" cy="15" r="2.5" fill="#E0F2FE" />
+    <!-- Frontal Lobe Neural Convolutions & Circuits -->
+    <path d="M 76 72 C 92 62, 110 74, 126 64" stroke="#38BDF8" stroke-width="1.2" fill="none" opacity="0.6" />
+    <path d="M 88 54 C 102 46, 118 56, 128 48" stroke="#ffd15c" stroke-width="1.2" fill="none" opacity="0.7" />
+    <path d="M 85 86 C 98 80, 112 90, 124 82" stroke="#0EA5E9" stroke-width="1" fill="none" opacity="0.5" />
+
+    <!-- Parietal & Occipital Cortex Circuits -->
+    <path d="M 138 52 C 156 46, 172 58, 184 68" stroke="#ffd15c" stroke-width="1.2" fill="none" opacity="0.7" />
+    <path d="M 146 72 C 162 66, 175 78, 188 80" stroke="#38BDF8" stroke-width="1.2" fill="none" opacity="0.65" />
+    <path d="M 148 94 C 164 96, 172 108, 182 106" stroke="#0EA5E9" stroke-width="1" fill="none" opacity="0.55" />
+
+    <!-- Temporal Lobe Memory Circuits -->
+    <path d="M 94 112 C 110 108, 126 118, 142 114" stroke="#38BDF8" stroke-width="1.2" fill="none" opacity="0.65" />
+    <path d="M 104 122 C 116 118, 128 124, 138 122" stroke="#ffd15c" stroke-width="1" fill="none" opacity="0.5" />
+
+    <!-- High-Density Synaptic Point-Cloud & Flare Nodes -->
+    <circle cx="82" cy="62" r="3" fill="#E0F2FE" filter="url(#nodeFlare)" />
+    <circle cx="82" cy="62" r="1.5" fill="#FFFFFF" />
+    <circle cx="118" cy="46" r="3.2" fill="#ffd15c" filter="url(#nodeFlare)" />
+    <circle cx="186" cy="82" r="3" fill="#38BDF8" filter="url(#nodeFlare)" />
+    <circle cx="186" cy="82" r="1.5" fill="#FFFFFF" />
+    <!-- Central Corpus Callosum / Core Cortex Hub -->
+    <circle cx="132" cy="84" r="4" fill="#FFFFFF" filter="url(#brainGlow)" />
+    <circle cx="132" cy="84" r="8" fill="none" stroke="#38BDF8" stroke-width="0.8" opacity="0.5" />
+    <circle cx="164" cy="132" r="2.8" fill="#ffd15c" />
+    <circle cx="106" cy="110" r="2.8" fill="#38BDF8" />
     
-    <!-- Central Brain Nucleus -->
-    <circle cx="0" cy="8" r="6" fill="#ffd15c" filter="url(#goldGlow)" />
+    <!-- Secondary Synaptic Micro-Nodes -->
+    <circle cx="98" cy="74" r="1.8" fill="#38BDF8" />
+    <circle cx="114" cy="92" r="1.8" fill="#E0F2FE" />
+    <circle cx="152" cy="64" r="2" fill="#ffd15c" />
+    <circle cx="168" cy="76" r="1.8" fill="#38BDF8" />
+    <circle cx="154" cy="106" r="2" fill="#38BDF8" />
+    <circle cx="122" cy="118" r="1.6" fill="#ffd15c" />
+    <circle cx="172" cy="102" r="1.8" fill="#E0F2FE" />
+
+    <!-- Neural Circuit Interconnecting Filaments -->
+    <line x1="132" y1="84" x2="82" y2="62" stroke="#38BDF8" stroke-width="1.1" opacity="0.6" />
+    <line x1="132" y1="84" x2="118" y2="46" stroke="#ffd15c" stroke-width="1.1" opacity="0.6" />
+    <line x1="132" y1="84" x2="186" y2="82" stroke="#38BDF8" stroke-width="1.1" opacity="0.6" />
+    <line x1="132" y1="84" x2="164" y2="132" stroke="#ffd15c" stroke-width="1.1" opacity="0.55" />
+    <line x1="132" y1="84" x2="106" y2="110" stroke="#38BDF8" stroke-width="1.1" opacity="0.6" />
+    
+    <line x1="82" y1="62" x2="98" y2="74" stroke="#38BDF8" stroke-width="0.9" opacity="0.4" />
+    <line x1="118" y1="46" x2="152" y2="64" stroke="#ffd15c" stroke-width="0.9" opacity="0.4" />
+    <line x1="152" y1="64" x2="186" y2="82" stroke="#38BDF8" stroke-width="0.9" opacity="0.4" />
+    <line x1="186" y1="82" x2="172" y2="102" stroke="#38BDF8" stroke-width="0.9" opacity="0.4" />
+    <line x1="106" y1="110" x2="122" y2="118" stroke="#38BDF8" stroke-width="0.9" opacity="0.4" />
   </g>
 
   <!-- ====================================================================== -->
-  <!-- BACKGROUND LAYER 2: CONTRIBUTION ACTIVITY MATRIX GRID                  -->
+  <!-- RIGHT SIDE: CONTRIBUTION ACTIVITY MATRIX GRID (x: 650..875)           -->
   <!-- ====================================================================== -->
   <g mask="url(#matrixFade)">
     {matrix_svg}
@@ -733,7 +781,7 @@ def generate_banner_svg() -> str:
   <path d="M 879 165 L 891 165 L 891 153" stroke="#9c824c" stroke-width="1.2" fill="none" opacity="0.8" />
 
   <!-- ====================================================================== -->
-  <!-- FOREGROUND: EXECUTIVE IDENTITY TYPOGRAPHY                              -->
+  <!-- CENTERED IDENTITY (x: 255..645, completely untouched & uncluttered!)  -->
   <!-- ====================================================================== -->
   <text x="450" y="66" class="charmisia-bold" font-size="38" font-weight="700" fill="url(#silverChrome)" letter-spacing="-0.3" text-anchor="middle">
     Dhanudharan K.S
@@ -929,7 +977,7 @@ def generate_tech_loop_svg() -> str:
 
 
 def main():
-    print("[HUD // INIT] Starting Agentic AI Profile Engine...")
+    print("[HUD // INIT] Starting Agentic AI Profile Engine (4K AI Brain Banner Edition)...")
     base_dir = os.path.dirname(os.path.abspath(__file__))
     token = find_github_token()
 
@@ -945,28 +993,28 @@ def main():
     print(f"[HUD // TELEMETRY] Deployed Nodes: {data['repo_count']} repos")
     print(f"[HUD // TELEMETRY] Horizon: {data['start_month']} – {data['end_month']} (6 Months)")
 
-    # 1. Generate system-telemetry.svg (Tier 1: Neat Full-Width Architecture Header, H=185)
+    # 1. Generate system-telemetry.svg (Compact Architecture Telemetry)
     telemetry_svg = generate_system_telemetry_svg()
     telemetry_path = os.path.join(base_dir, "system-telemetry.svg")
     with open(telemetry_path, "w", encoding="utf-8") as f:
         f.write(telemetry_svg)
     print(f"[HUD // RENDER] Tier 1 written -> {telemetry_path}")
 
-    # 2. Generate banner.svg (Tier 2: Contribution Matrix + Unified Brain Deck Background Banner, H=175)
+    # 2. Generate banner.svg (4K AI Neural Brain + Matrix Background Banner)
     banner_svg = generate_banner_svg()
     banner_path = os.path.join(base_dir, "banner.svg")
     with open(banner_path, "w", encoding="utf-8") as f:
         f.write(banner_svg)
     print(f"[HUD // RENDER] Tier 2 written -> {banner_path}")
 
-    # 3. Generate neural-heatmap.svg (Tier 3: 65:35 Contribution Matrix & Activity Horizon)
+    # 3. Generate neural-heatmap.svg (65:35 Contribution Matrix & Activity Horizon)
     heatmap_svg = generate_neural_heatmap_svg(data)
     heatmap_path = os.path.join(base_dir, "neural-heatmap.svg")
     with open(heatmap_path, "w", encoding="utf-8") as f:
         f.write(heatmap_svg)
     print(f"[HUD // RENDER] Tier 3 written -> {heatmap_path}")
 
-    # 4. Generate tech-loop.svg (Tier 4: 3D Magnetic Tech Icon Loop)
+    # 4. Generate tech-loop.svg (3D Magnetic Tech Icon Loop)
     tech_svg = generate_tech_loop_svg()
     tech_path = os.path.join(base_dir, "tech-loop.svg")
     with open(tech_path, "w", encoding="utf-8") as f:

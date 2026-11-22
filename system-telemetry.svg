@@ -19,7 +19,7 @@
       }
       .charmisia { font-family: 'Charmisia', 'Georgia', cursive, serif; }
       .charmisia-bold { font-family: 'Charmisia', 'Georgia', cursive, serif; font-weight: 700; }
-      .mono { font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', Consolas, 'Liberation Mono', monospace; }
+      .mono { font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', Consolas, monospace; }
       .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
       @keyframes calmPulse {
         0%, 100% { opacity: 0.95; }

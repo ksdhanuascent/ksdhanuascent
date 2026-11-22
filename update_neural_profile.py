@@ -585,7 +585,27 @@ def generate_system_telemetry_svg() -> str:
 
 
 def generate_banner_svg() -> str:
-    """Generates Card 2: banner.svg (Cosmic Glass-Coated About Me Banner, Height=175)."""
+    """Generates Card 2: banner.svg (Contribution Matrix + Unified Brain Deck Background Banner)."""
+    import random
+    random.seed(42)
+
+    # Build background contribution matrix squares
+    grid_rects = []
+    cell_size = 9
+    pitch = 12.5
+    levels = ["#161f30", "#59400a", "#9c7011", "#dfa620", "#ffd15c"]
+
+    for c in range(25):
+        for r in range(9):
+            x = 540 + c * pitch
+            y = 28 + r * pitch
+            lvl = random.choices([0, 1, 2, 3, 4], weights=[64, 13, 11, 7, 5])[0]
+            color = levels[lvl]
+            opacity = 0.45 if lvl == 0 else 0.85
+            grid_rects.append(f'<rect x="{x}" y="{y}" width="{cell_size}" height="{cell_size}" rx="2" fill="{color}" opacity="{opacity}" />')
+
+    matrix_svg = "\\n    ".join(grid_rects)
+
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 175" width="900" height="175">
   <defs>
     <style>
@@ -604,43 +624,47 @@ def generate_banner_svg() -> str:
       .charmisia {{ font-family: 'Charmisia', 'Georgia', cursive, serif; }}
       .charmisia-bold {{ font-family: 'Charmisia', 'Georgia', cursive, serif; font-weight: 700; }}
       .mono {{ font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', Consolas, monospace; }}
-      
-      @keyframes twinkle {{
-        0%, 100% {{ opacity: 0.85; transform: scale(1); }}
-        50% {{ opacity: 0.2; transform: scale(0.65); }}
-      }}
-      .star {{ animation: twinkle 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }}
-      .star-d1 {{ animation-delay: 1.1s; }}
-      .star-d2 {{ animation-delay: 2.3s; }}
     </style>
 
-    <radialGradient id="bannerNebula" cx="50%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.65" />
-      <stop offset="55%" stop-color="#0f172a" stop-opacity="0.3" />
-      <stop offset="100%" stop-color="#060913" stop-opacity="0" />
-    </radialGradient>
-
-    <radialGradient id="bannerElectric" cx="80%" cy="30%" r="45%">
-      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.35" />
-      <stop offset="70%" stop-color="#060913" stop-opacity="0" />
-    </radialGradient>
-
-    <linearGradient id="bannerGlass" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.88" />
-      <stop offset="50%" stop-color="#090e1a" stop-opacity="0.82" />
-      <stop offset="100%" stop-color="#030611" stop-opacity="0.95" />
+    <linearGradient id="bannerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1623" />
+      <stop offset="50%" stop-color="#080d18" />
+      <stop offset="100%" stop-color="#040711" />
     </linearGradient>
 
-    <linearGradient id="bannerBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Matrix Fade Mask -->
+    <linearGradient id="matrixMaskGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="35%" stop-color="#ffffff" stop-opacity="0.35" />
+      <stop offset="75%" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.5" />
+    </linearGradient>
+
+    <mask id="matrixFade">
+      <rect x="520" y="20" width="370" height="140" fill="url(#matrixMaskGrad)" />
+    </mask>
+
+    <!-- Brain Deck Fade Mask -->
+    <linearGradient id="brainMaskGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#000000" />
+    </linearGradient>
+
+    <mask id="brainFade">
+      <rect x="10" y="20" width="380" height="140" fill="url(#brainMaskGrad)" />
+    </mask>
+
+    <linearGradient id="specularBorder" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.65" />
       <stop offset="25%" stop-color="#CBD5E1" stop-opacity="0.4" />
-      <stop offset="75%" stop-color="#38BDF8" stop-opacity="0.55" />
-      <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0.3" />
+      <stop offset="75%" stop-color="#ffd15c" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.3" />
     </linearGradient>
 
-    <linearGradient id="bannerSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="sheenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22" />
-      <stop offset="30%" stop-color="#E0F2FE" stop-opacity="0.10" />
+      <stop offset="30%" stop-color="#E0F2FE" stop-opacity="0.08" />
       <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.0" />
     </linearGradient>
 
@@ -651,7 +675,7 @@ def generate_banner_svg() -> str:
       <stop offset="100%" stop-color="#94A3B8" />
     </linearGradient>
 
-    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="3.5" result="blur" />
       <feMerge>
         <feMergeNode in="blur" />
@@ -660,50 +684,80 @@ def generate_banner_svg() -> str:
     </filter>
   </defs>
 
-  <rect x="0" y="0" width="900" height="175" fill="#060913" />
-  <rect x="0" y="0" width="900" height="175" fill="url(#bannerNebula)" />
-  <rect x="0" y="0" width="900" height="175" fill="url(#bannerElectric)" />
-
-  <!-- Stars -->
-  <g fill="#E0F2FE">
-    <circle cx="85" cy="42" r="1.3" class="star" opacity="0.8" />
-    <circle cx="815" cy="38" r="1.3" class="star star-d1" opacity="0.8" />
-    <circle cx="180" cy="135" r="1" class="star star-d2" opacity="0.6" />
-    <circle cx="310" cy="30" r="1.2" class="star" opacity="0.75" />
-    <circle cx="610" cy="32" r="1.2" class="star star-d2" opacity="0.75" />
-    <circle cx="720" cy="142" r="1" class="star star-d1" opacity="0.65" />
-  </g>
+  <!-- Canvas Deep Void -->
+  <rect width="900" height="175" fill="{COLOR_BG_CANVAS}" />
 
   <!-- Glass Card Surface -->
-  <rect x="4" y="4" width="892" height="167" rx="16" fill="url(#bannerGlass)" stroke="url(#bannerBorder)" stroke-width="1.2" />
+  <rect x="5" y="5" width="890" height="165" rx="14" fill="url(#bannerBg)" stroke="url(#specularBorder)" stroke-width="1.2" />
 
-  <!-- Parabolic Curved Glass Sheen -->
-  <path d="M 4 20 C 4 11.2, 11.2 4, 20 4 L 880 4 C 888.8 4, 896 11.2, 896 20 L 896 68 C 620 98, 280 98, 4 68 Z" fill="url(#bannerSheen)" />
+  <!-- ====================================================================== -->
+  <!-- BACKGROUND LAYER 1: UNIFIED BRAIN DECK / NEURAL NETWORK TOPOLOGY       -->
+  <!-- ====================================================================== -->
+  <g mask="url(#brainFade)" transform="translate(105, 87)" opacity="0.7">
+    <!-- Brain Silhouette & Sulci -->
+    <ellipse cx="0" cy="0" rx="72" ry="26" fill="none" stroke="#ffd15c" stroke-width="0.9" opacity="0.4" stroke-dasharray="3,3" transform="rotate(-15)" />
+    <path d="M -4,-42 C -36,-40 -64,-20 -62,14 C -60,38 -42,54 -22,62 C -6,68 -2,65 -4,58" stroke="#38BDF8" stroke-width="1.8" fill="none" opacity="0.8" />
+    <path d="M 4,-42 C 36,-40 64,-20 62,14 C 60,38 42,54 22,62 C 6,68 2,65 4,58" stroke="#38BDF8" stroke-width="1.8" fill="none" opacity="0.8" />
+    <line x1="0" y1="-44" x2="0" y2="60" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.6" />
+    
+    <!-- Cortical Fissures -->
+    <path d="M -46,-5 C -34,-14 -20,2 -10,-5" stroke="#ffd15c" stroke-width="1.4" fill="none" opacity="0.7" />
+    <path d="M -42,22 C -26,14 -16,26 -5,18" stroke="#38BDF8" stroke-width="1.4" fill="none" opacity="0.7" />
+    <path d="M 46,-5 C 34,-14 20,2 10,-5" stroke="#ffd15c" stroke-width="1.4" fill="none" opacity="0.7" />
+    <path d="M 42,22 C 26,14 16,26 5,18" stroke="#38BDF8" stroke-width="1.4" fill="none" opacity="0.7" />
 
-  <circle cx="22" cy="18" r="2.5" fill="#FFFFFF" filter="url(#neonGlow)" />
-  <circle cx="878" cy="152" r="2" fill="#38BDF8" filter="url(#neonGlow)" />
+    <!-- Circuit Trace Bus Extending from Brain Deck to Center -->
+    <path d="M 60,10 L 95,10 L 115,-10 L 180,-10" stroke="#ffd15c" stroke-width="1.2" fill="none" opacity="0.6" />
+    <path d="M 55,-20 L 85,-20 L 105,0 L 180,0" stroke="#38BDF8" stroke-width="1.2" fill="none" opacity="0.6" />
+    <path d="M 55,30 L 90,30 L 110,15 L 180,15" stroke="#38BDF8" stroke-width="1.2" fill="none" opacity="0.5" />
+    
+    <!-- Node Pips -->
+    <circle cx="180" cy="-10" r="2.5" fill="#ffd15c" />
+    <circle cx="180" cy="0" r="2.5" fill="#38BDF8" />
+    <circle cx="180" cy="15" r="2.5" fill="#E0F2FE" />
+    
+    <!-- Central Brain Nucleus -->
+    <circle cx="0" cy="8" r="6" fill="#ffd15c" filter="url(#goldGlow)" />
+  </g>
 
-  <!-- Centered Identity -->
+  <!-- ====================================================================== -->
+  <!-- BACKGROUND LAYER 2: CONTRIBUTION ACTIVITY MATRIX GRID                  -->
+  <!-- ====================================================================== -->
+  <g mask="url(#matrixFade)">
+    {matrix_svg}
+  </g>
+
+  <!-- Physical Glass Sheen Highlight -->
+  <path d="M 5 20 C 5 11.2, 11.2 5, 20 5 L 880 5 C 888.8 5, 895 11.2, 895 20 L 895 68 C 620 98, 280 98, 5 68 Z" fill="url(#sheenGrad)" />
+
+  <!-- Corner Brackets -->
+  <path d="M 9 21 L 9 9 L 21 9" stroke="#9c824c" stroke-width="1.2" fill="none" opacity="0.8" />
+  <path d="M 879 9 L 891 9 L 891 21" stroke="#9c824c" stroke-width="1.2" fill="none" opacity="0.8" />
+  <path d="M 9 153 L 9 165 L 21 165" stroke="#9c824c" stroke-width="1.2" fill="none" opacity="0.8" />
+  <path d="M 879 165 L 891 165 L 891 153" stroke="#9c824c" stroke-width="1.2" fill="none" opacity="0.8" />
+
+  <!-- ====================================================================== -->
+  <!-- FOREGROUND: EXECUTIVE IDENTITY TYPOGRAPHY                              -->
+  <!-- ====================================================================== -->
   <text x="450" y="66" class="charmisia-bold" font-size="38" font-weight="700" fill="url(#silverChrome)" letter-spacing="-0.3" text-anchor="middle">
     Dhanudharan K.S
   </text>
 
   <g transform="translate(450, 102)">
-    <rect x="-195" y="-17" width="390" height="26" rx="13" fill="#0c4a6e" fill-opacity="0.35" stroke="#38BDF8" stroke-width="0.9" filter="url(#neonGlow)" opacity="0.8" />
-    <rect x="-195" y="-17" width="390" height="26" rx="13" fill="#0f172a" fill-opacity="0.7" stroke="#38BDF8" stroke-width="0.8" />
+    <rect x="-195" y="-17" width="390" height="26" rx="13" fill="#0f172a" fill-opacity="0.85" stroke="#38BDF8" stroke-width="0.9" />
     <text x="0" y="0" class="charmisia" font-size="16" font-weight="600" fill="#38BDF8" letter-spacing="1.8" text-anchor="middle">
       Agentic AI Engineer &amp; System Architect
     </text>
   </g>
 
   <g transform="translate(450, 144)">
-    <circle cx="-165" cy="-4" r="2" fill="#38BDF8" opacity="0.9" />
+    <circle cx="-165" cy="-4" r="2" fill="#ffd15c" opacity="0.9" />
     <line x1="-155" y1="-4" x2="-140" y2="-4" stroke="#CBD5E1" stroke-width="1" opacity="0.5" />
     <text x="0" y="0" class="charmisia-bold" font-size="12" font-weight="700" fill="#CBD5E1" letter-spacing="1.2" text-anchor="middle">
       Discipline, dedication, and determination
     </text>
     <line x1="140" y1="-4" x2="155" y2="-4" stroke="#CBD5E1" stroke-width="1" opacity="0.5" />
-    <circle cx="165" cy="-4" r="2" fill="#38BDF8" opacity="0.9" />
+    <circle cx="165" cy="-4" r="2" fill="#ffd15c" opacity="0.9" />
   </g>
 </svg>"""
     return svg
@@ -902,7 +956,7 @@ def main():
         f.write(telemetry_svg)
     print(f"[HUD // RENDER] Tier 1 written -> {telemetry_path}")
 
-    # 2. Generate banner.svg (Tier 2: Cosmic Glass About Me Banner, H=175)
+    # 2. Generate banner.svg (Tier 2: Contribution Matrix + Unified Brain Deck Background Banner, H=175)
     banner_svg = generate_banner_svg()
     banner_path = os.path.join(base_dir, "banner.svg")
     with open(banner_path, "w", encoding="utf-8") as f:

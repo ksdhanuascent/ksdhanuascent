@@ -478,7 +478,7 @@ def generate_neural_heatmap_svg(data: dict) -> str:
 
 
 def generate_system_telemetry_svg() -> str:
-    """Generates Card 1: system-telemetry.svg (Compact Full-Width Architecture Telemetry, Height=185)."""
+    """Generates Card 1: system-telemetry.svg (Neat, Spacious Full-Width Architecture Telemetry, Height=185)."""
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 185" width="900" height="185">
   <defs>
     <linearGradient id="panelBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -523,52 +523,48 @@ def generate_system_telemetry_svg() -> str:
   <path d="M 879 175 L 891 175 L 891 163" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
 
   <!-- Top AI System HUD Bar -->
-  <line x1="5" y1="34" x2="895" y2="34" stroke="{COLOR_BORDER}" stroke-width="1" />
+  <line x1="5" y1="36" x2="895" y2="36" stroke="{COLOR_BORDER}" stroke-width="1" />
 
   <!-- HUD Left Header -->
-  <text x="20" y="22" class="mono" font-size="10" font-weight="600" fill="{COLOR_TEXT_SLATE}" opacity="0.95">[SYS.NODE // KSDHANUASCENT]</text>
-  <text x="194" y="22" class="mono" font-size="10" fill="{COLOR_TEXT_DIM}">//</text>
-  <text x="210" y="22" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">SYSTEM_TELEMETRY // ARCH_SPEC</text>
+  <text x="20" y="23" class="mono" font-size="10.5" font-weight="600" fill="{COLOR_TEXT_SLATE}" opacity="0.95">[SYS.NODE // KSDHANUASCENT]</text>
+  <text x="194" y="23" class="mono" font-size="10.5" fill="{COLOR_TEXT_DIM}">//</text>
+  <text x="210" y="23" class="mono" font-size="10" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">SYSTEM_TELEMETRY // ARCH_SPEC</text>
 
   <!-- HUD Right Status Indicator -->
-  <circle cx="680" cy="18.5" r="3.5" fill="{COLOR_GOLD_CHAMPAGNE}" class="hud-online" />
-  <text x="692" y="22" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}" letter-spacing="0.5">NEURAL_ORCHESTRATOR : ONLINE</text>
+  <circle cx="680" cy="19.5" r="3.5" fill="{COLOR_GOLD_CHAMPAGNE}" class="hud-online" />
+  <text x="692" y="23" class="mono" font-size="10" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}" letter-spacing="0.5">NEURAL_ORCHESTRATOR : ONLINE</text>
 
-  <!-- Identity Header in Charmisia Bold -->
-  <text x="32" y="58" class="charmisia-bold" font-size="24" font-weight="700" fill="{COLOR_TEXT_PRIMARY}">Dhanudharan K.S</text>
-  <text x="868" y="56" class="mono" font-size="8.5" font-weight="500" fill="{COLOR_TEXT_DIM}" text-anchor="end">CONF: PRODUCTION // STATE: DETERMINISTIC</text>
-
-  <!-- 4 Clean Spec Rows (Compact & Full-Length Width = 836px) -->
+  <!-- 4 Clean Spec Rows (Spacious & Neat Layout across Full Width = 836px) -->
   <!-- Row 1: Core Role -->
-  <g transform="translate(32, 66)">
-    <rect x="0" y="0" width="836" height="18" rx="3" fill="#131d2e" fill-opacity="0.35" />
-    <text x="10" y="13" class="mono" font-size="9" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Core Role</text>
-    <text x="145" y="13" class="mono" font-size="9" fill="{COLOR_TEXT_DIM}">:</text>
-    <text x="160" y="13" class="mono" font-size="9" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">Agentic AI Engineer &amp; System Architect</text>
+  <g transform="translate(32, 48)">
+    <rect x="0" y="0" width="836" height="20" rx="3" fill="#131d2e" fill-opacity="0.35" />
+    <text x="10" y="14" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Core Role</text>
+    <text x="150" y="14" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
+    <text x="165" y="14" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">Agentic AI Engineer &amp; System Architect</text>
   </g>
 
   <!-- Row 2: Orchestration -->
-  <g transform="translate(32, 86)">
-    <rect x="0" y="0" width="836" height="18" rx="3" fill="#131d2e" fill-opacity="0.35" />
-    <text x="10" y="13" class="mono" font-size="9" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Orchestration</text>
-    <text x="145" y="13" class="mono" font-size="9" fill="{COLOR_TEXT_DIM}">:</text>
-    <text x="160" y="13" class="mono" font-size="9" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">LangGraph • n8n • Multi-Agent Pipelines</text>
+  <g transform="translate(32, 73)">
+    <rect x="0" y="0" width="836" height="20" rx="3" fill="#131d2e" fill-opacity="0.35" />
+    <text x="10" y="14" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Orchestration</text>
+    <text x="150" y="14" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
+    <text x="165" y="14" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">LangGraph • n8n • Multi-Agent Pipelines</text>
   </g>
 
   <!-- Row 3: Intelligence -->
-  <g transform="translate(32, 106)">
-    <rect x="0" y="0" width="836" height="18" rx="3" fill="#131d2e" fill-opacity="0.35" />
-    <text x="10" y="13" class="mono" font-size="9" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Intelligence</text>
-    <text x="145" y="13" class="mono" font-size="9" fill="{COLOR_TEXT_DIM}">:</text>
-    <text x="160" y="13" class="mono" font-size="9" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">Python • PyTorch • CrewAI • AutoGen • MCP</text>
+  <g transform="translate(32, 98)">
+    <rect x="0" y="0" width="836" height="20" rx="3" fill="#131d2e" fill-opacity="0.35" />
+    <text x="10" y="14" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Intelligence</text>
+    <text x="150" y="14" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
+    <text x="165" y="14" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">Python • PyTorch • CrewAI • AutoGen • MCP</text>
   </g>
 
   <!-- Row 4: Infrastructure -->
-  <g transform="translate(32, 126)">
-    <rect x="0" y="0" width="836" height="18" rx="3" fill="#131d2e" fill-opacity="0.35" />
-    <text x="10" y="13" class="mono" font-size="9" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Infrastructure</text>
-    <text x="145" y="13" class="mono" font-size="9" fill="{COLOR_TEXT_DIM}">:</text>
-    <text x="160" y="13" class="mono" font-size="9" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">TypeScript • Node.js • Docker • CUDA</text>
+  <g transform="translate(32, 123)">
+    <rect x="0" y="0" width="836" height="20" rx="3" fill="#131d2e" fill-opacity="0.35" />
+    <text x="10" y="14" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Infrastructure</text>
+    <text x="150" y="14" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
+    <text x="165" y="14" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">TypeScript • Node.js • Docker • CUDA</text>
   </g>
 
   <!-- Subtle Circuit Divider with Antique Brass End Nodes -->
@@ -577,7 +573,7 @@ def generate_system_telemetry_svg() -> str:
   <circle cx="868" cy="152" r="2" fill="{COLOR_GOLD_ACCENT}" />
 
   <!-- Tagline in Charmisia Font (Full-Width Clean Presentation) -->
-  <text x="32" y="169" class="charmisia-bold" font-size="11" font-weight="700" fill="#e2e8f0">
+  <text x="32" y="169" class="charmisia-bold" font-size="11.5" font-weight="700" fill="#e2e8f0">
     &quot;No great thing is created suddenly.&quot; <tspan class="charmisia" font-weight="400" fill="{COLOR_TEXT_MUTED}">Steady, patient effort builds lasting results over time...</tspan>
   </text>
 </svg>"""
@@ -949,7 +945,7 @@ def main():
     print(f"[HUD // TELEMETRY] Deployed Nodes: {data['repo_count']} repos")
     print(f"[HUD // TELEMETRY] Horizon: {data['start_month']} – {data['end_month']} (6 Months)")
 
-    # 1. Generate system-telemetry.svg (Tier 1: Compact Full-Width Architecture Header, H=185)
+    # 1. Generate system-telemetry.svg (Tier 1: Neat Full-Width Architecture Header, H=185)
     telemetry_svg = generate_system_telemetry_svg()
     telemetry_path = os.path.join(base_dir, "system-telemetry.svg")
     with open(telemetry_path, "w", encoding="utf-8") as f:

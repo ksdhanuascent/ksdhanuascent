@@ -216,9 +216,12 @@
   <circle cx="474" cy="208" r="2" fill="#9c824c" />
   <circle cx="876" cy="208" r="2" fill="#9c824c" />
 
-  <!-- Single Bold Line Motto in Charmisia Font -->
-  <text x="474" y="240" class="charmisia-bold" font-size="14.5" font-weight="700" fill="#e2e8f0">
-    Discipline, dedication, and determination
+  <!-- Motto / Tagline in Charmisia Font -->
+  <text x="474" y="233" class="charmisia-bold" font-size="12.5" font-weight="700" fill="#e2e8f0">
+    &quot;No great thing is created suddenly.&quot;
+  </text>
+  <text x="474" y="253" class="charmisia" font-size="11" fill="#94a3b8">
+    Steady, patient effort builds lasting results over time...
   </text>
 
   <!-- Bottom 8-Swatch Golden-to-Obsidian Neural Spectrum Bar -->

@@ -698,9 +698,12 @@ def generate_agentic_brain_deck_svg() -> str:
   <circle cx="474" cy="208" r="2" fill="{COLOR_GOLD_ACCENT}" />
   <circle cx="876" cy="208" r="2" fill="{COLOR_GOLD_ACCENT}" />
 
-  <!-- Single Bold Line Motto in Charmisia Font -->
-  <text x="474" y="240" class="charmisia-bold" font-size="14.5" font-weight="700" fill="#e2e8f0">
-    Discipline, dedication, and determination
+  <!-- Motto / Tagline in Charmisia Font -->
+  <text x="474" y="233" class="charmisia-bold" font-size="12.5" font-weight="700" fill="#e2e8f0">
+    &quot;No great thing is created suddenly.&quot;
+  </text>
+  <text x="474" y="253" class="charmisia" font-size="11" fill="{COLOR_TEXT_MUTED}">
+    Steady, patient effort builds lasting results over time...
   </text>
 
   <!-- Bottom 8-Swatch Golden-to-Obsidian Neural Spectrum Bar -->

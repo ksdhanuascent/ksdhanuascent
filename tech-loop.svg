@@ -25,19 +25,14 @@
     </mask>
   </defs>
 
-  <!-- Canvas Background -->
   <rect x="0" y="0" width="900" height="90" fill="#090d16" />
-
-  <!-- Sleek Dark Glass Capsule Track (rx="14") -->
   <rect x="4" y="8" width="892" height="74" rx="14" fill="url(#loopBg)" stroke="url(#loopBorder)" stroke-width="1.2" />
 
-  <!-- 3D Perspective Depth Arcs Behind the Track -->
   <g stroke="#b89b5e" stroke-width="0.8" fill="none" opacity="0.15">
     <ellipse cx="450" cy="45" rx="420" ry="24" stroke-dasharray="6,4" />
     <ellipse cx="450" cy="45" rx="380" ry="18" stroke-dasharray="3,3" />
   </g>
 
-  <!-- Continuous 3D Circular Stream with Official Vector Logos ONLY -->
   <g mask="url(#edgeFade)" transform="translate(0, 16)">
     <g>
       <animateTransform attributeName="transform" type="translate" from="0 0" to="-880 0" dur="20s" repeatCount="indefinite" />

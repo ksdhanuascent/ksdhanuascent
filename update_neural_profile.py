@@ -478,8 +478,8 @@ def generate_neural_heatmap_svg(data: dict) -> str:
 
 
 def generate_system_telemetry_svg() -> str:
-    """Generates Card 1: system-telemetry.svg (Full-Width Maximized Architecture Telemetry)."""
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 205" width="900" height="205">
+    """Generates Card 1: system-telemetry.svg (Compact Full-Width Architecture Telemetry, Height=185)."""
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 185" width="900" height="185">
   <defs>
     <linearGradient id="panelBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0f1623" />
@@ -511,81 +511,206 @@ def generate_system_telemetry_svg() -> str:
   </defs>
 
   <!-- Canvas Background -->
-  <rect x="0" y="0" width="900" height="205" fill="{COLOR_BG_CANVAS}" />
+  <rect x="0" y="0" width="900" height="185" fill="{COLOR_BG_CANVAS}" />
 
   <!-- Full-Width Card Surface -->
-  <rect x="5" y="5" width="890" height="195" rx="8" fill="url(#panelBgGrad)" stroke="{COLOR_BORDER}" stroke-width="1" />
+  <rect x="5" y="5" width="890" height="175" rx="8" fill="url(#panelBgGrad)" stroke="{COLOR_BORDER}" stroke-width="1" />
 
   <!-- Subtle Antique Brass Corner Bracket Accents -->
   <path d="M 9 21 L 9 9 L 21 9" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
   <path d="M 879 9 L 891 9 L 891 21" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
-  <path d="M 9 183 L 9 195 L 21 195" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
-  <path d="M 879 195 L 891 195 L 891 183" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
+  <path d="M 9 163 L 9 175 L 21 175" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
+  <path d="M 879 175 L 891 175 L 891 163" stroke="{COLOR_GOLD_ACCENT}" stroke-width="1.2" fill="none" opacity="0.8" />
 
   <!-- Top AI System HUD Bar -->
-  <line x1="5" y1="36" x2="895" y2="36" stroke="{COLOR_BORDER}" stroke-width="1" />
+  <line x1="5" y1="34" x2="895" y2="34" stroke="{COLOR_BORDER}" stroke-width="1" />
 
   <!-- HUD Left Header -->
-  <text x="20" y="23" class="mono" font-size="10.5" font-weight="600" fill="{COLOR_TEXT_SLATE}" opacity="0.95">[SYS.NODE // KSDHANUASCENT]</text>
-  <text x="194" y="23" class="mono" font-size="10.5" fill="{COLOR_TEXT_DIM}">//</text>
-  <text x="210" y="23" class="mono" font-size="10" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">SYSTEM_TELEMETRY // ARCH_SPEC</text>
+  <text x="20" y="22" class="mono" font-size="10" font-weight="600" fill="{COLOR_TEXT_SLATE}" opacity="0.95">[SYS.NODE // KSDHANUASCENT]</text>
+  <text x="194" y="22" class="mono" font-size="10" fill="{COLOR_TEXT_DIM}">//</text>
+  <text x="210" y="22" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">SYSTEM_TELEMETRY // ARCH_SPEC</text>
 
   <!-- HUD Right Status Indicator -->
-  <circle cx="680" cy="19.5" r="3.5" fill="{COLOR_GOLD_CHAMPAGNE}" class="hud-online" />
-  <text x="692" y="23" class="mono" font-size="10" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}" letter-spacing="0.5">NEURAL_ORCHESTRATOR : ONLINE</text>
+  <circle cx="680" cy="18.5" r="3.5" fill="{COLOR_GOLD_CHAMPAGNE}" class="hud-online" />
+  <text x="692" y="22" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}" letter-spacing="0.5">NEURAL_ORCHESTRATOR : ONLINE</text>
 
   <!-- Identity Header in Charmisia Bold -->
-  <text x="32" y="64" class="charmisia-bold" font-size="26" font-weight="700" fill="{COLOR_TEXT_PRIMARY}">Dhanudharan K.S</text>
-  <text x="868" y="62" class="mono" font-size="9" font-weight="500" fill="{COLOR_TEXT_DIM}" text-anchor="end">CONF: PRODUCTION // STATE: DETERMINISTIC</text>
+  <text x="32" y="58" class="charmisia-bold" font-size="24" font-weight="700" fill="{COLOR_TEXT_PRIMARY}">Dhanudharan K.S</text>
+  <text x="868" y="56" class="mono" font-size="8.5" font-weight="500" fill="{COLOR_TEXT_DIM}" text-anchor="end">CONF: PRODUCTION // STATE: DETERMINISTIC</text>
 
-  <!-- 4 Clean Spec Rows (Maximized Full-Length Width = 836px) -->
+  <!-- 4 Clean Spec Rows (Compact & Full-Length Width = 836px) -->
   <!-- Row 1: Core Role -->
-  <g transform="translate(32, 74)">
-    <rect x="0" y="0" width="836" height="20" rx="3" fill="#131d2e" fill-opacity="0.35" />
-    <text x="10" y="14" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Core Role</text>
-    <text x="150" y="14" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
-    <text x="165" y="14" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">Agentic AI Engineer &amp; System Architect</text>
+  <g transform="translate(32, 66)">
+    <rect x="0" y="0" width="836" height="18" rx="3" fill="#131d2e" fill-opacity="0.35" />
+    <text x="10" y="13" class="mono" font-size="9" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Core Role</text>
+    <text x="145" y="13" class="mono" font-size="9" fill="{COLOR_TEXT_DIM}">:</text>
+    <text x="160" y="13" class="mono" font-size="9" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">Agentic AI Engineer &amp; System Architect</text>
   </g>
 
   <!-- Row 2: Orchestration -->
-  <g transform="translate(32, 98)">
-    <rect x="0" y="0" width="836" height="20" rx="3" fill="#131d2e" fill-opacity="0.35" />
-    <text x="10" y="14" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Orchestration</text>
-    <text x="150" y="14" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
-    <text x="165" y="14" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">LangGraph • n8n • Multi-Agent Pipelines</text>
+  <g transform="translate(32, 86)">
+    <rect x="0" y="0" width="836" height="18" rx="3" fill="#131d2e" fill-opacity="0.35" />
+    <text x="10" y="13" class="mono" font-size="9" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Orchestration</text>
+    <text x="145" y="13" class="mono" font-size="9" fill="{COLOR_TEXT_DIM}">:</text>
+    <text x="160" y="13" class="mono" font-size="9" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">LangGraph • n8n • Multi-Agent Pipelines</text>
   </g>
 
   <!-- Row 3: Intelligence -->
-  <g transform="translate(32, 122)">
-    <rect x="0" y="0" width="836" height="20" rx="3" fill="#131d2e" fill-opacity="0.35" />
-    <text x="10" y="14" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Intelligence</text>
-    <text x="150" y="14" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
-    <text x="165" y="14" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">Python • PyTorch • CrewAI • AutoGen • MCP</text>
+  <g transform="translate(32, 106)">
+    <rect x="0" y="0" width="836" height="18" rx="3" fill="#131d2e" fill-opacity="0.35" />
+    <text x="10" y="13" class="mono" font-size="9" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Intelligence</text>
+    <text x="145" y="13" class="mono" font-size="9" fill="{COLOR_TEXT_DIM}">:</text>
+    <text x="160" y="13" class="mono" font-size="9" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">Python • PyTorch • CrewAI • AutoGen • MCP</text>
   </g>
 
   <!-- Row 4: Infrastructure -->
-  <g transform="translate(32, 146)">
-    <rect x="0" y="0" width="836" height="20" rx="3" fill="#131d2e" fill-opacity="0.35" />
-    <text x="10" y="14" class="mono" font-size="9.5" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Infrastructure</text>
-    <text x="150" y="14" class="mono" font-size="9.5" fill="{COLOR_TEXT_DIM}">:</text>
-    <text x="165" y="14" class="mono" font-size="9.5" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">TypeScript • Node.js • Docker • CUDA</text>
+  <g transform="translate(32, 126)">
+    <rect x="0" y="0" width="836" height="18" rx="3" fill="#131d2e" fill-opacity="0.35" />
+    <text x="10" y="13" class="mono" font-size="9" font-weight="600" fill="{COLOR_GOLD_CHAMPAGNE}">Infrastructure</text>
+    <text x="145" y="13" class="mono" font-size="9" fill="{COLOR_TEXT_DIM}">:</text>
+    <text x="160" y="13" class="mono" font-size="9" font-weight="500" fill="{COLOR_TEXT_PRIMARY}">TypeScript • Node.js • Docker • CUDA</text>
   </g>
 
   <!-- Subtle Circuit Divider with Antique Brass End Nodes -->
-  <line x1="32" y1="173" x2="868" y2="173" stroke="{COLOR_BORDER}" stroke-width="1" />
-  <circle cx="32" cy="173" r="2" fill="{COLOR_GOLD_ACCENT}" />
-  <circle cx="868" cy="173" r="2" fill="{COLOR_GOLD_ACCENT}" />
+  <line x1="32" y1="152" x2="868" y2="152" stroke="{COLOR_BORDER}" stroke-width="1" />
+  <circle cx="32" cy="152" r="2" fill="{COLOR_GOLD_ACCENT}" />
+  <circle cx="868" cy="152" r="2" fill="{COLOR_GOLD_ACCENT}" />
 
   <!-- Tagline in Charmisia Font (Full-Width Clean Presentation) -->
-  <text x="32" y="190" class="charmisia-bold" font-size="11.5" font-weight="700" fill="#e2e8f0">
+  <text x="32" y="169" class="charmisia-bold" font-size="11" font-weight="700" fill="#e2e8f0">
     &quot;No great thing is created suddenly.&quot; <tspan class="charmisia" font-weight="400" fill="{COLOR_TEXT_MUTED}">Steady, patient effort builds lasting results over time...</tspan>
   </text>
 </svg>"""
     return svg
 
 
+def generate_banner_svg() -> str:
+    """Generates Card 2: banner.svg (Cosmic Glass-Coated About Me Banner, Height=175)."""
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 175" width="900" height="175">
+  <defs>
+    <style>
+      @font-face {{
+        font-family: 'Charmisia';
+        font-style: normal;
+        font-weight: 400;
+        src: url('data:font/woff2;base64,{FONT_CHARMISIA_400_B64}') format('woff2');
+      }}
+      @font-face {{
+        font-family: 'Charmisia';
+        font-style: normal;
+        font-weight: 700;
+        src: url('data:font/woff2;base64,{FONT_CHARMISIA_700_B64}') format('woff2');
+      }}
+      .charmisia {{ font-family: 'Charmisia', 'Georgia', cursive, serif; }}
+      .charmisia-bold {{ font-family: 'Charmisia', 'Georgia', cursive, serif; font-weight: 700; }}
+      .mono {{ font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', Consolas, monospace; }}
+      
+      @keyframes twinkle {{
+        0%, 100% {{ opacity: 0.85; transform: scale(1); }}
+        50% {{ opacity: 0.2; transform: scale(0.65); }}
+      }}
+      .star {{ animation: twinkle 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }}
+      .star-d1 {{ animation-delay: 1.1s; }}
+      .star-d2 {{ animation-delay: 2.3s; }}
+    </style>
+
+    <radialGradient id="bannerNebula" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.65" />
+      <stop offset="55%" stop-color="#0f172a" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#060913" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="bannerElectric" cx="80%" cy="30%" r="45%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.35" />
+      <stop offset="70%" stop-color="#060913" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="bannerGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.88" />
+      <stop offset="50%" stop-color="#090e1a" stop-opacity="0.82" />
+      <stop offset="100%" stop-color="#030611" stop-opacity="0.95" />
+    </linearGradient>
+
+    <linearGradient id="bannerBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.65" />
+      <stop offset="25%" stop-color="#CBD5E1" stop-opacity="0.4" />
+      <stop offset="75%" stop-color="#38BDF8" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0.3" />
+    </linearGradient>
+
+    <linearGradient id="bannerSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22" />
+      <stop offset="30%" stop-color="#E0F2FE" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.0" />
+    </linearGradient>
+
+    <linearGradient id="silverChrome" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="35%" stop-color="#F8FAFC" />
+      <stop offset="70%" stop-color="#CBD5E1" />
+      <stop offset="100%" stop-color="#94A3B8" />
+    </linearGradient>
+
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="175" fill="#060913" />
+  <rect x="0" y="0" width="900" height="175" fill="url(#bannerNebula)" />
+  <rect x="0" y="0" width="900" height="175" fill="url(#bannerElectric)" />
+
+  <!-- Stars -->
+  <g fill="#E0F2FE">
+    <circle cx="85" cy="42" r="1.3" class="star" opacity="0.8" />
+    <circle cx="815" cy="38" r="1.3" class="star star-d1" opacity="0.8" />
+    <circle cx="180" cy="135" r="1" class="star star-d2" opacity="0.6" />
+    <circle cx="310" cy="30" r="1.2" class="star" opacity="0.75" />
+    <circle cx="610" cy="32" r="1.2" class="star star-d2" opacity="0.75" />
+    <circle cx="720" cy="142" r="1" class="star star-d1" opacity="0.65" />
+  </g>
+
+  <!-- Glass Card Surface -->
+  <rect x="4" y="4" width="892" height="167" rx="16" fill="url(#bannerGlass)" stroke="url(#bannerBorder)" stroke-width="1.2" />
+
+  <!-- Parabolic Curved Glass Sheen -->
+  <path d="M 4 20 C 4 11.2, 11.2 4, 20 4 L 880 4 C 888.8 4, 896 11.2, 896 20 L 896 68 C 620 98, 280 98, 4 68 Z" fill="url(#bannerSheen)" />
+
+  <circle cx="22" cy="18" r="2.5" fill="#FFFFFF" filter="url(#neonGlow)" />
+  <circle cx="878" cy="152" r="2" fill="#38BDF8" filter="url(#neonGlow)" />
+
+  <!-- Centered Identity -->
+  <text x="450" y="66" class="charmisia-bold" font-size="38" font-weight="700" fill="url(#silverChrome)" letter-spacing="-0.3" text-anchor="middle">
+    Dhanudharan K.S
+  </text>
+
+  <g transform="translate(450, 102)">
+    <rect x="-195" y="-17" width="390" height="26" rx="13" fill="#0c4a6e" fill-opacity="0.35" stroke="#38BDF8" stroke-width="0.9" filter="url(#neonGlow)" opacity="0.8" />
+    <rect x="-195" y="-17" width="390" height="26" rx="13" fill="#0f172a" fill-opacity="0.7" stroke="#38BDF8" stroke-width="0.8" />
+    <text x="0" y="0" class="charmisia" font-size="16" font-weight="600" fill="#38BDF8" letter-spacing="1.8" text-anchor="middle">
+      Agentic AI Engineer &amp; System Architect
+    </text>
+  </g>
+
+  <g transform="translate(450, 144)">
+    <circle cx="-165" cy="-4" r="2" fill="#38BDF8" opacity="0.9" />
+    <line x1="-155" y1="-4" x2="-140" y2="-4" stroke="#CBD5E1" stroke-width="1" opacity="0.5" />
+    <text x="0" y="0" class="charmisia-bold" font-size="12" font-weight="700" fill="#CBD5E1" letter-spacing="1.2" text-anchor="middle">
+      Discipline, dedication, and determination
+    </text>
+    <line x1="140" y1="-4" x2="155" y2="-4" stroke="#CBD5E1" stroke-width="1" opacity="0.5" />
+    <circle cx="165" cy="-4" r="2" fill="#38BDF8" opacity="0.9" />
+  </g>
+</svg>"""
+    return svg
+
+
 def generate_tech_loop_svg() -> str:
-    """Generates Card 3: tech-loop.svg (Continuous 3D Magnetic Loop with Official Logos ONLY)."""
+    """Generates Card 4: tech-loop.svg (Continuous 3D Magnetic Loop with Official Logos ONLY)."""
     def logo_python(cx, cy):
         return f'''<g transform="translate({cx-13}, {cy-13}) scale(0.9)">
           <path d="M 14.5 1 C 8 1 8.5 4 8.5 4 L 8.5 7 L 15 7 L 15 8 L 5 8 C 5 8 1 7.5 1 14 C 1 20.5 4.5 20 4.5 20 L 7 20 L 7 17 C 7 15 8.5 13.5 10.5 13.5 L 17 13.5 C 19 13.5 20 12 20 10 L 20 4.5 C 20 4.5 20.5 1 14.5 1 Z" fill="#38BDF8" />
@@ -734,19 +859,14 @@ def generate_tech_loop_svg() -> str:
     </mask>
   </defs>
 
-  <!-- Canvas Background -->
   <rect x="0" y="0" width="900" height="90" fill="{COLOR_BG_CANVAS}" />
-
-  <!-- Sleek Dark Glass Capsule Track (rx="14") -->
   <rect x="4" y="8" width="892" height="74" rx="14" fill="url(#loopBg)" stroke="url(#loopBorder)" stroke-width="1.2" />
 
-  <!-- 3D Perspective Depth Arcs Behind the Track -->
   <g stroke="{COLOR_GOLD_CHAMPAGNE}" stroke-width="0.8" fill="none" opacity="0.15">
     <ellipse cx="450" cy="45" rx="420" ry="24" stroke-dasharray="6,4" />
     <ellipse cx="450" cy="45" rx="380" ry="18" stroke-dasharray="3,3" />
   </g>
 
-  <!-- Continuous 3D Circular Stream with Official Vector Logos ONLY -->
   <g mask="url(#edgeFade)" transform="translate(0, 16)">
     <g>
       <animateTransform attributeName="transform" type="translate" from="0 0" to="-{total_single_width} 0" dur="20s" repeatCount="indefinite" />
@@ -759,7 +879,7 @@ def generate_tech_loop_svg() -> str:
 
 
 def main():
-    print("[HUD // INIT] Starting Agentic AI Profile Engine (Executive System Telemetry Edition)...")
+    print("[HUD // INIT] Starting Agentic AI Profile Engine...")
     base_dir = os.path.dirname(os.path.abspath(__file__))
     token = find_github_token()
 
@@ -775,29 +895,36 @@ def main():
     print(f"[HUD // TELEMETRY] Deployed Nodes: {data['repo_count']} repos")
     print(f"[HUD // TELEMETRY] Horizon: {data['start_month']} – {data['end_month']} (6 Months)")
 
-    # 1. Generate system-telemetry.svg (Top Full-Width Tier)
+    # 1. Generate system-telemetry.svg (Tier 1: Compact Full-Width Architecture Header, H=185)
     telemetry_svg = generate_system_telemetry_svg()
     telemetry_path = os.path.join(base_dir, "system-telemetry.svg")
     with open(telemetry_path, "w", encoding="utf-8") as f:
         f.write(telemetry_svg)
     print(f"[HUD // RENDER] Tier 1 written -> {telemetry_path}")
 
-    # 2. Generate neural-heatmap.svg (Middle 65:35 Heatmap & Activity Matrix)
+    # 2. Generate banner.svg (Tier 2: Cosmic Glass About Me Banner, H=175)
+    banner_svg = generate_banner_svg()
+    banner_path = os.path.join(base_dir, "banner.svg")
+    with open(banner_path, "w", encoding="utf-8") as f:
+        f.write(banner_svg)
+    print(f"[HUD // RENDER] Tier 2 written -> {banner_path}")
+
+    # 3. Generate neural-heatmap.svg (Tier 3: 65:35 Contribution Matrix & Activity Horizon)
     heatmap_svg = generate_neural_heatmap_svg(data)
     heatmap_path = os.path.join(base_dir, "neural-heatmap.svg")
     with open(heatmap_path, "w", encoding="utf-8") as f:
         f.write(heatmap_svg)
-    print(f"[HUD // RENDER] Tier 2 written -> {heatmap_path}")
+    print(f"[HUD // RENDER] Tier 3 written -> {heatmap_path}")
 
-    # 3. Generate tech-loop.svg (Bottom 3D Glass Tech Icon Loop)
+    # 4. Generate tech-loop.svg (Tier 4: 3D Magnetic Tech Icon Loop)
     tech_svg = generate_tech_loop_svg()
     tech_path = os.path.join(base_dir, "tech-loop.svg")
     with open(tech_path, "w", encoding="utf-8") as f:
         f.write(tech_svg)
-    print(f"[HUD // RENDER] Tier 3 written -> {tech_path}")
+    print(f"[HUD // RENDER] Tier 4 written -> {tech_path}")
 
-    # Remove obsolete files if present
-    for old_file in ("agentic-brain-deck.svg", "banner.svg", "cosmic-telemetry.svg", "repo-matrix.svg", "generate_readme_ui.py"):
+    # Remove obsolete files
+    for old_file in ("agentic-brain-deck.svg", "cosmic-telemetry.svg", "repo-matrix.svg", "generate_readme_ui.py"):
         old_path = os.path.join(base_dir, old_file)
         if os.path.exists(old_path):
             try:

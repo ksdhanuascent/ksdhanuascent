@@ -216,8 +216,8 @@
       <rect x="463.5" y="76.5" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-10-26: 0 synapses</title></rect>
       <rect x="463.5" y="93.0" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-10-27: 0 synapses</title></rect>
       <rect x="463.5" y="109.5" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-10-28: 0 synapses</title></rect>
-      <rect x="463.5" y="126.0" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-10-29: 0 synapses</title></rect>
-      <rect x="463.5" y="142.5" width="14.5" height="13.5" rx="3" fill="#59400a"><title>2026-10-30: 2 synapses</title></rect>
+      <rect x="463.5" y="126.0" width="14.5" height="13.5" rx="3" fill="#59400a"><title>2026-10-29: 1 synapses</title></rect>
+      <rect x="463.5" y="142.5" width="14.5" height="13.5" rx="3" fill="#59400a"><title>2026-10-30: 1 synapses</title></rect>
       <rect x="463.5" y="159.0" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-10-31: 0 synapses</title></rect>
       <rect x="483.0" y="60.0" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-11-01: 0 synapses</title></rect>
       <rect x="483.0" y="76.5" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-11-02: 0 synapses</title></rect>
@@ -241,7 +241,6 @@
       <rect x="522.0" y="142.5" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-11-20: 0 synapses</title></rect>
       <rect x="522.0" y="159.0" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-11-21: 0 synapses</title></rect>
       <rect x="541.5" y="60.0" width="14.5" height="13.5" rx="3" fill="#dfa620"><title>2026-11-22: 6 synapses</title></rect>
-      <rect x="541.5" y="76.5" width="14.5" height="13.5" rx="3" fill="#161f30"><title>2026-11-23: 0 synapses</title></rect>
   </g>
 
   <!-- Horizon & Legend (x = 54..556) -->
@@ -280,7 +279,7 @@
   </g>
 
   <g transform="translate(692, 84)">
-    <text x="0" y="22" class="mono" font-size="22" font-weight="700" fill="#b89b5e">13d</text>
+    <text x="0" y="22" class="mono" font-size="22" font-weight="700" fill="#b89b5e">14d</text>
     <text x="0" y="37" class="mono" font-size="8" font-weight="600" fill="#64748b" letter-spacing="0.5">ACTIVE CADENCE</text>
   </g>
 

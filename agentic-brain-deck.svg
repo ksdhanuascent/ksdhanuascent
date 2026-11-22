@@ -1,0 +1,264 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" width="900" height="330">
+  <defs>
+    <linearGradient id="deckBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1623" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+    <linearGradient id="goldCorePulse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd15c" />
+      <stop offset="100%" stop-color="#dfa620" />
+    </linearGradient>
+    <linearGradient id="synapseCyanGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#ffd15c" />
+    </linearGradient>
+    <filter id="coreGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <style>
+      .mono { font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', Consolas, 'Liberation Mono', monospace; }
+      .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+      @keyframes coreRingPulse {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.18); opacity: 0.25; }
+      }
+      .pulse-ring-1 { transform-origin: 225px 158px; animation: coreRingPulse 3.2s ease-in-out infinite; }
+      .pulse-ring-2 { transform-origin: 225px 158px; animation: coreRingPulse 3.2s ease-in-out infinite 1.6s; }
+    </style>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect x="0" y="0" width="900" height="330" fill="#090d16" />
+
+  <!-- ======================================================== -->
+  <!-- LEFT PANEL: Agentic AI Brain & Multi-Agent Topology Visual -->
+  <!-- Coordinates: x=8..442, y=8..322 (width=434, height=314)     -->
+  <!-- ======================================================== -->
+  <rect x="8" y="8" width="434" height="314" rx="6" fill="url(#deckBgGrad)" stroke="#1e293b" stroke-width="1" />
+
+  <!-- Golden Corner Bracket Accents -->
+  <path d="M 12 22 L 12 12 L 22 12" stroke="#d49b1a" stroke-width="1.5" fill="none" />
+  <path d="M 430 12 L 440 12 L 440 22" stroke="#d49b1a" stroke-width="1.5" fill="none" />
+  <path d="M 12 308 L 12 318 L 22 318" stroke="#d49b1a" stroke-width="1.5" fill="none" />
+  <path d="M 430 318 L 440 318 L 440 308" stroke="#d49b1a" stroke-width="1.5" fill="none" />
+
+  <!-- Left HUD Top Bar -->
+  <line x1="8" y1="38" x2="442" y2="38" stroke="#1e293b" stroke-width="1" />
+  <text x="20" y="25" class="mono" font-size="10.5" font-weight="700" fill="#ffd15c">AGENTIC_BRAIN_TOPOLOGY</text>
+  <text x="195" y="25" class="mono" font-size="10" fill="#64748b">//</text>
+  <text x="210" y="25" class="mono" font-size="9.5" fill="#94a3b8">neural-core.svg</text>
+  <text x="424" y="25" class="mono" font-size="8.5" fill="#ffd15c" text-anchor="end">6-NODE ACTIVE</text>
+
+  <!-- Stylized Geometric Brain Silhouette & Neural Circuit Arches -->
+  <!-- Left Lobe Contour -->
+  <path d="M 210 65 C 130 65, 55 105, 58 165 C 60 215, 115 250, 195 255"
+        stroke="#1e293b" stroke-width="1.2" stroke-dasharray="3,3" fill="none" opacity="0.8" />
+  <!-- Right Lobe Contour -->
+  <path d="M 240 65 C 320 65, 395 105, 392 165 C 390 215, 335 250, 255 255"
+        stroke="#1e293b" stroke-width="1.2" stroke-dasharray="3,3" fill="none" opacity="0.8" />
+  <!-- Inner Hemispheric Divider -->
+  <path d="M 225 58 L 225 100 M 225 215 L 225 260"
+        stroke="#1e293b" stroke-width="1" stroke-dasharray="2,2" />
+
+  <!-- Interconnecting Synaptic Circuit Pathways -->
+  <!-- Orchestrator (225, 82) to Perception (115, 105) -->
+  <line x1="225" y1="82" x2="115" y2="105" stroke="#1e293b" stroke-width="1.2" />
+  <!-- Orchestrator (225, 82) to Reasoning (335, 105) -->
+  <line x1="225" y1="82" x2="335" y2="105" stroke="#1e293b" stroke-width="1.2" />
+  <!-- Perception (115, 105) to Memory (95, 185) -->
+  <line x1="115" y1="105" x2="95" y2="185" stroke="url(#synapseCyanGold)" stroke-width="1.2" stroke-dasharray="4,2" />
+  <!-- Reasoning (335, 105) to Tool Use (355, 185) -->
+  <line x1="335" y1="105" x2="355" y2="185" stroke="url(#goldLinear)" stroke-width="1.2" stroke-dasharray="4,2" />
+  <!-- Memory (95, 185) to Core Cortex (225, 158) -->
+  <line x1="95" y1="185" x2="225" y2="158" stroke="#38bdf8" stroke-width="1.4" opacity="0.8" />
+  <!-- Tool Use (355, 185) to Core Cortex (225, 158) -->
+  <line x1="355" y1="185" x2="225" y2="158" stroke="#ffd15c" stroke-width="1.4" opacity="0.8" />
+  <!-- Core Cortex (225, 158) to Execution (225, 238) -->
+  <line x1="225" y1="158" x2="225" y2="238" stroke="url(#goldLinear)" stroke-width="1.8" />
+  <!-- Memory to Execution -->
+  <line x1="95" y1="185" x2="225" y2="238" stroke="#1e293b" stroke-width="1" />
+  <!-- Tool Use to Execution -->
+  <line x1="355" y1="185" x2="225" y2="238" stroke="#1e293b" stroke-width="1" />
+  <!-- Perception to Core -->
+  <line x1="115" y1="105" x2="225" y2="158" stroke="#1e293b" stroke-width="1" stroke-dasharray="2,3" />
+  <!-- Reasoning to Core -->
+  <line x1="335" y1="105" x2="225" y2="158" stroke="#1e293b" stroke-width="1" stroke-dasharray="2,3" />
+
+  <!-- Secondary Synaptic Micro-Nodes for Intricate Density -->
+  <circle cx="165" cy="122" r="2.5" fill="#1e293b" />
+  <circle cx="285" cy="122" r="2.5" fill="#1e293b" />
+  <circle cx="150" cy="210" r="2.5" fill="#1e293b" />
+  <circle cx="300" cy="210" r="2.5" fill="#1e293b" />
+  <circle cx="185" cy="168" r="2" fill="#d49b1a" />
+  <circle cx="265" cy="168" r="2" fill="#d49b1a" />
+
+  <!-- GLOWING CENTRAL GOLDEN CORE NODE (225, 158) -->
+  <!-- Subtle Pulse Rings -->
+  <circle cx="225" cy="158" r="26" fill="none" stroke="#ffd15c" stroke-width="1" opacity="0.3" class="pulse-ring-1" />
+  <circle cx="225" cy="158" r="38" fill="none" stroke="#d49b1a" stroke-width="0.8" opacity="0.2" class="pulse-ring-2" />
+  <circle cx="225" cy="158" r="16" fill="#ffd15c" fill-opacity="0.12" stroke="#ffd15c" stroke-width="1.5" />
+  <circle cx="225" cy="158" r="7" fill="#ffd15c" filter="url(#coreGlow)" />
+
+  <!-- Core Label -->
+  <rect x="187" y="174" width="76" height="14" rx="3" fill="#090d16" stroke="#d49b1a" stroke-width="0.8" />
+  <text x="225" y="184.5" class="mono" font-size="7.5" font-weight="700" fill="#ffd15c" text-anchor="middle">SYNAPSE_CORE</text>
+
+  <!-- 6 NAMED SYNAPTIC NODES -->
+  <!-- 1. ORCHESTRATOR (Top Center) -->
+  <g transform="translate(225, 82)">
+    <circle cx="0" cy="0" r="8" fill="#0f1623" stroke="#ffd15c" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="4" fill="#ffd15c" />
+    <rect x="-42" y="-22" width="84" height="14" rx="3" fill="#090d16" stroke="#d49b1a" stroke-width="0.8" />
+    <text x="0" y="-12" class="mono" font-size="8" font-weight="700" fill="#ffd15c" text-anchor="middle">ORCHESTRATOR</text>
+  </g>
+
+  <!-- 2. PERCEPTION (Top Left) -->
+  <g transform="translate(115, 105)">
+    <circle cx="0" cy="0" r="7" fill="#0f1623" stroke="#38bdf8" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="3.5" fill="#38bdf8" />
+    <rect x="-38" y="-20" width="76" height="14" rx="3" fill="#090d16" stroke="#1e293b" stroke-width="0.8" />
+    <text x="0" y="-10" class="mono" font-size="8" font-weight="700" fill="#38bdf8" text-anchor="middle">PERCEPTION</text>
+  </g>
+
+  <!-- 3. REASONING (Top Right) -->
+  <g transform="translate(335, 105)">
+    <circle cx="0" cy="0" r="7" fill="#0f1623" stroke="#ffd15c" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="3.5" fill="#ffd15c" />
+    <rect x="-36" y="-20" width="72" height="14" rx="3" fill="#090d16" stroke="#1e293b" stroke-width="0.8" />
+    <text x="0" y="-10" class="mono" font-size="8" font-weight="700" fill="#ffd15c" text-anchor="middle">REASONING</text>
+  </g>
+
+  <!-- 4. MEMORY (Mid Left) -->
+  <g transform="translate(95, 185)">
+    <circle cx="0" cy="0" r="7" fill="#0f1623" stroke="#38bdf8" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="3.5" fill="#38bdf8" />
+    <rect x="-30" y="10" width="60" height="14" rx="3" fill="#090d16" stroke="#1e293b" stroke-width="0.8" />
+    <text x="0" y="20" class="mono" font-size="8" font-weight="700" fill="#38bdf8" text-anchor="middle">MEMORY</text>
+  </g>
+
+  <!-- 5. TOOL USE (Mid Right) -->
+  <g transform="translate(355, 185)">
+    <circle cx="0" cy="0" r="7" fill="#0f1623" stroke="#ffd15c" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="3.5" fill="#ffd15c" />
+    <rect x="-32" y="10" width="64" height="14" rx="3" fill="#090d16" stroke="#1e293b" stroke-width="0.8" />
+    <text x="0" y="20" class="mono" font-size="8" font-weight="700" fill="#ffd15c" text-anchor="middle">TOOL USE</text>
+  </g>
+
+  <!-- 6. EXECUTION (Bottom Center) -->
+  <g transform="translate(225, 238)">
+    <circle cx="0" cy="0" r="7.5" fill="#0f1623" stroke="#38bdf8" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="4" fill="#38bdf8" />
+    <rect x="-36" y="11" width="72" height="14" rx="3" fill="#090d16" stroke="#1e293b" stroke-width="0.8" />
+    <text x="0" y="21" class="mono" font-size="8" font-weight="700" fill="#38bdf8" text-anchor="middle">EXECUTION</text>
+  </g>
+
+  <!-- Left Bottom Status Bar -->
+  <line x1="8" y1="284" x2="442" y2="284" stroke="#1e293b" stroke-width="1" />
+  <text x="225" y="303" class="mono" font-size="9" font-weight="700" fill="#ffd15c" letter-spacing="1.2" text-anchor="middle">
+    [MULTI_AGENT_CORTEX • DETERMINISTIC_STATE]
+  </text>
+
+
+  <!-- ======================================================== -->
+  <!-- RIGHT PANEL: Agentic System Architecture Telemetry       -->
+  <!-- Coordinates: x=458..892, y=8..322 (width=434, height=314)    -->
+  <!-- ======================================================== -->
+  <rect x="458" y="8" width="434" height="314" rx="6" fill="url(#deckBgGrad)" stroke="#1e293b" stroke-width="1" />
+
+  <!-- Golden Corner Bracket Accents -->
+  <path d="M 462 22 L 462 12 L 472 12" stroke="#d49b1a" stroke-width="1.5" fill="none" />
+  <path d="M 880 12 L 890 12 L 890 22" stroke="#d49b1a" stroke-width="1.5" fill="none" />
+  <path d="M 462 308 L 462 318 L 472 318" stroke="#d49b1a" stroke-width="1.5" fill="none" />
+  <path d="M 880 318 L 890 318 L 890 308" stroke="#d49b1a" stroke-width="1.5" fill="none" />
+
+  <!-- Right HUD Top Bar -->
+  <line x1="458" y1="38" x2="892" y2="38" stroke="#1e293b" stroke-width="1" />
+  <text x="472" y="25" class="mono" font-size="10.5" font-weight="700" fill="#ffd15c">SYSTEM_TELEMETRY</text>
+  <text x="618" y="25" class="mono" font-size="10" fill="#64748b">//</text>
+  <text x="632" y="25" class="mono" font-size="9.5" fill="#94a3b8">arch-spec</text>
+  <text x="878" y="25" class="mono" font-size="8.5" fill="#64748b" text-anchor="end">CONF: AGENTIC_PROD</text>
+
+  <!-- Right Header: Identity & Title -->
+  <text x="474" y="64" class="sans" font-size="19" font-weight="800" fill="#ffffff" letter-spacing="-0.3">Dhanudharan K.S</text>
+  <text x="474" y="81" class="mono" font-size="11" font-weight="600" fill="#ffd15c">Agentic AI Engineer &amp; System Architect</text>
+
+  <!-- Clean Key-Value Architecture Rows -->
+  <g transform="translate(474, 96)">
+    <!-- Row 1: Core Role -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="404" height="20" rx="3" fill="#131d2e" fill-opacity="0.4" />
+      <text x="8" y="14" class="mono" font-size="9.5" font-weight="700" fill="#ffd15c">Core Role</text>
+      <text x="110" y="14" class="mono" font-size="9.5" fill="#64748b">:</text>
+      <text x="122" y="14" class="mono" font-size="9.5" font-weight="500" fill="#f1f5f9">Agentic AI Engineer &amp; System Architect</text>
+    </g>
+
+    <!-- Row 2: Orchestration -->
+    <g transform="translate(0, 24)">
+      <rect x="0" y="0" width="404" height="20" rx="3" fill="#131d2e" fill-opacity="0.4" />
+      <text x="8" y="14" class="mono" font-size="9.5" font-weight="700" fill="#ffd15c">Orchestration</text>
+      <text x="110" y="14" class="mono" font-size="9.5" fill="#64748b">:</text>
+      <text x="122" y="14" class="mono" font-size="9.5" font-weight="500" fill="#f1f5f9">LangGraph • n8n • Multi-Agent Pipelines</text>
+    </g>
+
+    <!-- Row 3: Intelligence -->
+    <g transform="translate(0, 48)">
+      <rect x="0" y="0" width="404" height="20" rx="3" fill="#131d2e" fill-opacity="0.4" />
+      <text x="8" y="14" class="mono" font-size="9.5" font-weight="700" fill="#ffd15c">Intelligence</text>
+      <text x="110" y="14" class="mono" font-size="9.5" fill="#64748b">:</text>
+      <text x="122" y="14" class="mono" font-size="9.5" font-weight="500" fill="#f1f5f9">Python • PyTorch • Gemini • Reasoning Loops</text>
+    </g>
+
+    <!-- Row 4: Infrastructure -->
+    <g transform="translate(0, 72)">
+      <rect x="0" y="0" width="404" height="20" rx="3" fill="#131d2e" fill-opacity="0.4" />
+      <text x="8" y="14" class="mono" font-size="9.5" font-weight="700" fill="#ffd15c">Infrastructure</text>
+      <text x="110" y="14" class="mono" font-size="9.5" fill="#64748b">:</text>
+      <text x="122" y="14" class="mono" font-size="9.5" font-weight="500" fill="#f1f5f9">TypeScript • Node.js • Docker • CUDA</text>
+    </g>
+
+    <!-- Row 5: Design Pattern -->
+    <g transform="translate(0, 96)">
+      <rect x="0" y="0" width="404" height="20" rx="3" fill="#131d2e" fill-opacity="0.4" />
+      <text x="8" y="14" class="mono" font-size="9.5" font-weight="700" fill="#ffd15c">Design Pattern</text>
+      <text x="110" y="14" class="mono" font-size="9.5" fill="#64748b">:</text>
+      <text x="122" y="14" class="mono" font-size="9.5" font-weight="500" fill="#f1f5f9">Deterministic • Zero-Waste • HITL Gates</text>
+    </g>
+  </g>
+
+  <!-- Subtle Circuit Divider with Golden End Nodes -->
+  <line x1="474" y1="225" x2="876" y2="225" stroke="#1e293b" stroke-width="1" />
+  <circle cx="474" cy="225" r="2" fill="#d49b1a" />
+  <circle cx="876" cy="225" r="2" fill="#d49b1a" />
+
+  <!-- Italicized Architectural Statement -->
+  <g transform="translate(474, 242)">
+    <text x="0" y="0" class="sans" font-size="10.2" font-style="italic" fill="#94a3b8">
+      "Designing autonomous reasoning engines that perceive context,
+    </text>
+    <text x="0" y="15" class="sans" font-size="10.2" font-style="italic" fill="#94a3b8">
+      orchestrate tools, and execute with deterministic precision."
+    </text>
+  </g>
+
+  <!-- Bottom 8-Swatch Golden-to-Obsidian Neural Spectrum Bar -->
+  <line x1="458" y1="284" x2="892" y2="284" stroke="#1e293b" stroke-width="1" />
+  <g transform="translate(474, 292)">
+    <text x="0" y="12" class="mono" font-size="8.5" font-weight="600" fill="#64748b" letter-spacing="0.5">NEURAL_SPECTRUM</text>
+    <!-- 8 Swatches -->
+    <g transform="translate(140, 3)">
+      <rect x="0" y="0" width="28" height="9" rx="2" fill="#ffd15c"><title>Gain 8 // Peak</title></rect>
+      <rect x="33" y="0" width="28" height="9" rx="2" fill="#dfa620"><title>Gain 7</title></rect>
+      <rect x="66" y="0" width="28" height="9" rx="2" fill="#b88316"><title>Gain 6</title></rect>
+      <rect x="99" y="0" width="28" height="9" rx="2" fill="#9c7011"><title>Gain 5</title></rect>
+      <rect x="132" y="0" width="28" height="9" rx="2" fill="#7a560e"><title>Gain 4</title></rect>
+      <rect x="165" y="0" width="28" height="9" rx="2" fill="#59400a"><title>Gain 3</title></rect>
+      <rect x="198" y="0" width="28" height="9" rx="2" fill="#322718"><title>Gain 2</title></rect>
+      <rect x="231" y="0" width="28" height="9" rx="2" fill="#161f30"><title>Gain 1 // Idle</title></rect>
+    </g>
+  </g>
+
+</svg>
